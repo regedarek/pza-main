@@ -1,0 +1,102 @@
+<%= form_with(model: mountain_route, class: "contents") do |form| %>
+  <% if mountain_route.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(mountain_route.errors.count, "error") %> prohibited this mountain_route from being saved:</h2>
+
+      <ul>
+        <% mountain_route.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :activity_date %>
+    <%= form.date_field :activity_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :area %>
+    <%= form.text_field :area, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :custom_difficulty %>
+    <%= form.text_field :custom_difficulty, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :equipped %>
+    <%= form.check_box :equipped, class: "block mt-2 h-5 w-5" %>
+  </div>
+
+  <div class="my-5">
+        <%= form.select :french_difficulty, options_for_select(
+            MountainRoute.french_difficulties.map { |key, value|
+                [key.titleize, MountainRoute.french_difficulties.key(value)]
+            }, @mountain_route.french_difficulty
+          ),
+          include_blank: 'Trudność drogi(skala francuska)'
+        %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :length %>
+    <%= form.number_field :length, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :multipitch %>
+    <%= form.check_box :multipitch, class: "block mt-2 h-5 w-5" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :multipitch_difficulty %>
+    <%= form.text_field :multipitch_difficulty, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :multipitch_lead %>
+    <%= form.number_field :multipitch_lead, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :multipitch_number %>
+    <%= form.number_field :multipitch_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+        <%= form.select :multipitch_style, options_for_select(
+            MountainRoute.styles.map { |key, value|
+                [key.upcase, MountainRoute.multipitch_styles.key(value)]
+            }, @mountain_route.multipitch_style
+          ),
+          include_blank: 'Styl prowadzonych trudności'
+        %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :partner %>
+    <%= form.text_field :partner, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+        <%= form.select :style, options_for_select(
+            MountainRoute.styles.map { |key, value|
+                [key.upcase, MountainRoute.styles.key(value)]
+            }, @mountain_route.style
+          ),
+          include_blank: 'Styl prowadzonych trudności'
+        %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

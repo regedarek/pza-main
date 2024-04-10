@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mountain_routes
   namespace :admin do
     resources :users
   end

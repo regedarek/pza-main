@@ -20,6 +20,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
+  has_many :mountain_routes, dependent: :destroy
+
   def admin?
     admin
   end

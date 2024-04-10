@@ -13,7 +13,7 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 gem "redis", ">= 4.0.1"
 gem "bcrypt", "~> 3.1.7"
-
+gem 'friendly_id', '~> 5.4.0'
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "bootsnap", require: false

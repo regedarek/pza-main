@@ -1,0 +1,87 @@
+<div id="<%= dom_id mountain_route %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Activity date:</strong>
+    <%= mountain_route.activity_date %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Area:</strong>
+    <%= mountain_route.area %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Custom difficulty:</strong>
+    <%= mountain_route.custom_difficulty %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Equipped:</strong>
+    <%= mountain_route.equipped %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">French difficulty:</strong>
+    <%= mountain_route.french_difficulty %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Length:</strong>
+    <%= mountain_route.length %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Multipitch:</strong>
+    <%= mountain_route.multipitch %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Multipitch difficulty:</strong>
+    <%= mountain_route.multipitch_difficulty %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Multipitch lead:</strong>
+    <%= mountain_route.multipitch_lead %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Multipitch number:</strong>
+    <%= mountain_route.multipitch_number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Multipitch style:</strong>
+    <%= mountain_route.multipitch_style %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= mountain_route.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Partner:</strong>
+    <%= mountain_route.partner %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Slug:</strong>
+    <%= mountain_route.slug %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Style:</strong>
+    <%= mountain_route.style %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= mountain_route.user_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this mountain route", mountain_route, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this mountain route", edit_mountain_route_path(mountain_route), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

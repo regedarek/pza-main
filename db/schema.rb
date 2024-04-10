@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_10_130609) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_10_140922) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "mountain_routes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.date "activity_date"
+    t.string "area"
+    t.string "custom_difficulty"
+    t.boolean "equipped"
+    t.integer "french_difficulty"
+    t.integer "length"
+    t.boolean "multipitch"
+    t.string "multipitch_difficulty"
+    t.integer "multipitch_lead"
+    t.integer "multipitch_number"
+    t.integer "multipitch_style"
+    t.string "name"
+    t.string "partner"
+    t.string "slug"
+    t.integer "style"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mountain_routes_on_user_id"
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name"
@@ -25,4 +47,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_130609) do
     t.string "password_digest"
   end
 
+  add_foreign_key "mountain_routes", "users"
 end

@@ -19,7 +19,23 @@ pl:
   activerecord:
     models:
       user: Użytkownik
+      mountain_route: Przejście
     attributes:
+      mountain_route:
+        name: Nazwa
+        length: Długość
+        activity_date: Data
+        area: Rejon
+        custom_difficulty: Trudność (skala oryginalna)
+        equipped: Ubezpieczona
+        french_difficulty: Trudność (skala francuska)
+        multipitch: Wielowyciągowa
+        multipitch_difficulty: Prowadzone trudności
+        multipitch_lead: Ilość prowadzonych wyciągów
+        multipitch_number: Ilość wyciągów
+        multipitch_style: Styl prowadzonych trudności
+        partner: Partnerzy
+        style: Styl prowadzonych trudności
       user:
         first_name: "Imię"
         last_name: "Nazwisko"
