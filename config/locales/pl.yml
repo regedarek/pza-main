@@ -1,4 +1,6 @@
 pl:
+  pundit:
+    not_authorized: Brak dostępu do tej strony, sprawdź czy jesteś zalogowany!
   true: Tak
   false: Nie
   login: Zaloguj Się

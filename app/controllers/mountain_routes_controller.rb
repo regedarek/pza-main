@@ -8,20 +8,26 @@ class MountainRoutesController < ApplicationController
 
   # GET /mountain_routes/1 or /mountain_routes/1.json
   def show
+    authorize @mountain_route
   end
 
   # GET /mountain_routes/new
   def new
     @mountain_route = MountainRoute.new
+
+    authorize @mountain_route
   end
 
   # GET /mountain_routes/1/edit
   def edit
+    authorize @mountain_route
   end
 
   # POST /mountain_routes or /mountain_routes.json
   def create
     @mountain_route = current_user.mountain_routes.new(mountain_route_params)
+
+    authorize @mountain_route
 
     respond_to do |format|
       if @mountain_route.save
@@ -36,6 +42,8 @@ class MountainRoutesController < ApplicationController
 
   # PATCH/PUT /mountain_routes/1 or /mountain_routes/1.json
   def update
+    authorize @mountain_route
+
     respond_to do |format|
       if @mountain_route.update(mountain_route_params)
         format.html { redirect_to mountain_route_url(@mountain_route), notice: "Mountain route was successfully updated." }
@@ -49,6 +57,8 @@ class MountainRoutesController < ApplicationController
 
   # DELETE /mountain_routes/1 or /mountain_routes/1.json
   def destroy
+    authorize @mountain_route
+
     @mountain_route.destroy!
 
     respond_to do |format|

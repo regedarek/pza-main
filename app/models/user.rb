@@ -23,9 +23,9 @@ class User < ApplicationRecord
   has_many :mountain_routes, dependent: :destroy
 
   def admin?
-    admin
+    false
   end
-  
+
   def name
     "#{first_name} #{last_name}"
   end
