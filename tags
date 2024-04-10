@@ -16,6 +16,7 @@ ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < A
 Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
 Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
 CreateUsers	db/migrate/20240409203045_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[7.1]$/;"	c
+GithubStatusChecks	.kamal/hooks/pre-deploy.sample	/^class GithubStatusChecks$/;"	c
 PzaMain	config/application.rb	/^module PzaMain$/;"	m
 User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
 UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
@@ -27,19 +28,27 @@ bundler_requirement_for	bin/bundle	/^  def bundler_requirement_for(version)$/;"	
 change	db/migrate/20240409202437_add_uuid.rb	/^  def change$/;"	f	class:AddUuid
 change	db/migrate/20240409203045_create_users.rb	/^  def change$/;"	f	class:CreateUsers
 cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
+complete_count	.kamal/hooks/pre-deploy.sample	/^  def complete_count$/;"	f	class:GithubStatusChecks
 create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+current_status	.kamal/hooks/pre-deploy.sample	/^  def current_status$/;"	f	class:GithubStatusChecks
 destroy	app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersController
 edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
 env_var_version	bin/bundle	/^  def env_var_version$/;"	f
+exit_with_error	.kamal/hooks/pre-deploy.sample	/^def exit_with_error(message)$/;"	f
+first_status_url	.kamal/hooks/pre-deploy.sample	/^  def first_status_url$/;"	f	class:GithubStatusChecks
 gemfile	bin/bundle	/^  def gemfile$/;"	f
 index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
+initialize	.kamal/hooks/pre-deploy.sample	/^  def initialize$/;"	f	class:GithubStatusChecks
 invoked_as_script?	bin/bundle	/^  def invoked_as_script?$/;"	f
 load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
 lockfile	bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
 new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+refresh!	.kamal/hooks/pre-deploy.sample	/^  def refresh!$/;"	f	class:GithubStatusChecks
 set_user	app/controllers/users_controller.rb	/^    def set_user$/;"	f	class:UsersController
 show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+state	.kamal/hooks/pre-deploy.sample	/^  def state$/;"	f	class:GithubStatusChecks
 system!	bin/setup	/^def system!(*args)$/;"	f
+total_count	.kamal/hooks/pre-deploy.sample	/^  def total_count$/;"	f	class:GithubStatusChecks
 update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
 user_params	app/controllers/users_controller.rb	/^    def user_params$/;"	f	class:UsersController
