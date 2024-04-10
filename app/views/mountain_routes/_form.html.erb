@@ -1,7 +1,7 @@
 <%= form_with(model: mountain_route, class: "contents") do |form| %>
   <% if mountain_route.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(mountain_route.errors.count, "error") %> prohibited this mountain_route from being saved:</h2>
+      <h2><%= pluralize(mountain_route.errors.count, "error") %> <%= t('activerecord.errors.models.mountain_route') %></h2>
 
       <ul>
         <% mountain_route.errors.each do |error| %>
