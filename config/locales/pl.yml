@@ -12,6 +12,8 @@ pl:
     index:
       title: Lista Przejść
       new: Dodaj nowe przejście
+    edit:
+      title: Edytuj przejście
     new:
       title: Dodaj Przejście
   registrations:
