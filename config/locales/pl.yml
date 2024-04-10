@@ -15,7 +15,11 @@ pl:
       success: Zarejestrowano pomyślnie!
     new:
       title: Rejestracja
-      sign_up: Zarejestruj się
+      sign_in: Zaloguj się
+      already_signed: Masz już konto?
+      password: Hasło
+      password_confirmation: Potwierdź Hasło
+      submit: Zarejestruj
   sessions:
     new:
       sign_in: Zaloguj się
