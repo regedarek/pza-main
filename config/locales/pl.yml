@@ -62,6 +62,7 @@ pl:
       mountain_route: Przejście
     attributes:
       mountain_route:
+        sport_type: Rodzaj sportu
         sport_types:
           speleo: Jaskinie
           climbing: Wspinaczka
