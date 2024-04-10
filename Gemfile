@@ -17,6 +17,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem 'pundit'
 gem "bootsnap", require: false
+gem "heroicon"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
