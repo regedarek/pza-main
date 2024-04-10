@@ -36,6 +36,7 @@ edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersControlle
 env_var_version	bin/bundle	/^  def env_var_version$/;"	f
 exit_with_error	.kamal/hooks/pre-deploy.sample	/^def exit_with_error(message)$/;"	f
 first_status_url	.kamal/hooks/pre-deploy.sample	/^  def first_status_url$/;"	f	class:GithubStatusChecks
+from.state	app/javascript/controllers/navbar_controller.js	/^  static values  = { state: Boolean }$/;"	p
 gemfile	bin/bundle	/^  def gemfile$/;"	f
 index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
 initialize	.kamal/hooks/pre-deploy.sample	/^  def initialize$/;"	f	class:GithubStatusChecks
