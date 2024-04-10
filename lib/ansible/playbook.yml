@@ -1,0 +1,11 @@
+---
+- name: Provisionning webservers group
+  hosts: webservers
+  strategy: free
+  roles:
+    - packages
+    - docker
+    - firewall
+    - ssh
+    - snap
+    - traefik
