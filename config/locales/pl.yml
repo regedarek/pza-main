@@ -6,10 +6,14 @@ pl:
   login: Zaloguj Się
   register: Zarejestruj Się
   logout: Wyloguj się
+  back: Powrót
+  edit: Edycja
   mountain_routes:
     index:
       title: Lista Przejść
       new: Dodaj nowe przejście
+    new:
+      title: Dodaj Przejście
   registrations:
     create:
       success: Zarejestrowano pomyślnie!
