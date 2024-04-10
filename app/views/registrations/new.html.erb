@@ -1,0 +1,33 @@
+<h1><%= t('.title') %></h1>
+
+<%= form_for @user, url: registration_path do |f| %>
+  <% if f.object.errors.any? %>
+    <h2>
+      <%= pluralize(f.object.errors.count, "error") %>
+      <%= t('.prohibited_this_user_from_being_saved') %>
+    </h2>
+
+    <ul>
+      <% f.object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= f.submit t('.sign_up') %>
+  </div>
+<% end %>
