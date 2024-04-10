@@ -2,7 +2,9 @@
 #
 
 Rails.application.routes.draw do
-  resources :users
+  namespace :admin do
+    resources :users
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
   get "/pages/:page" => "pages#show"
