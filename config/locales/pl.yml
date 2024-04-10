@@ -55,6 +55,7 @@ pl:
     attributes:
       mountain_route:
         name: Nazwa
+        description: Dodatkowy Opis
         length: Długość (m)
         activity_date: Data
         area: Rejon

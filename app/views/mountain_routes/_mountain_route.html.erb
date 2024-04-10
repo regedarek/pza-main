@@ -1,5 +1,4 @@
 <div id="<%= dom_id mountain_route %>">
-
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.name') %>:</strong>
     <%= mountain_route.name %>
@@ -68,6 +67,11 @@
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.team') %>:</strong>
     <%= mountain_route.team %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.description') %>:</strong>
+    <%= mountain_route.description %>
   </p>
 
   <% if action_name != "show" %>
