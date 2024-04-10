@@ -8,10 +8,18 @@
 #  first_name      :string
 #  last_name       :string
 #  password_digest :string
+#  slug            :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  index_users_on_slug  (slug) UNIQUE
+#
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_secure_password
 
   normalizes :email, with: -> (email) { email.strip.downcase }

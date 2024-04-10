@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def authenticate_user!
+    return if user_signed_in?
+
+    flash[:alert] = I18n.t("failure.unauthenticated")
+
+    redirect_to new_session_path
+  end
+
   def user_not_authorized
     flash[:alert] = I18n.t("pundit.not_authorized")
 

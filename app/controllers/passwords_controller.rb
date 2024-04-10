@@ -1,12 +1,20 @@
 class PasswordsController < ApplicationController
-  def create
-    user = User.find_by(email: params[:email])
+  before_action :authenticate_user!
 
-    if user
-      user.send_password_reset
-      redirect_to root_url, notice: "Email sent with password reset instructions."
+  def edit
+  end
+
+  def update
+    if current_user.update(password_params)
+      redirect_to edit_password_path, notice: t('.success')
     else
-      redirect_to root_url, notice: "Email address not found."
+      render :edit, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation, :password_challenge).with_defaults(password_challenge: '')
   end
 end

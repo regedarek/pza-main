@@ -1,3 +1,35 @@
+# == Schema Information
+#
+# Table name: mountain_routes
+#
+#  id                    :uuid             not null, primary key
+#  activity_date         :date
+#  area                  :string
+#  custom_difficulty     :string
+#  equipped              :boolean
+#  french_difficulty     :integer
+#  length                :integer
+#  multipitch            :boolean
+#  multipitch_difficulty :string
+#  multipitch_lead       :integer
+#  multipitch_number     :integer
+#  multipitch_style      :integer
+#  name                  :string
+#  partner               :string
+#  slug                  :string
+#  style                 :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  user_id               :uuid             not null
+#
+# Indexes
+#
+#  index_mountain_routes_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
 class MountainRoute < ApplicationRecord
   extend FriendlyId
   friendly_id :name_and_date, use: :slugged
@@ -5,6 +37,7 @@ class MountainRoute < ApplicationRecord
   enum multipitch_style: {
     'OS': 0, 'RP': 1, 'FL': 2, 'AF': 3
   }, _prefix: :multipitch
+
   enum style: {
     'OS': 0, 'RP': 1, 'FL': 2, 'AF': 3
   }
@@ -24,8 +57,8 @@ class MountainRoute < ApplicationRecord
   validates :multipitch_style, :multipitch_number, :multipitch_lead,
     :multipitch_difficulty, :partner, presence: true, if: :multipitch
 
-  validates :equipped, inclusion: { in: [true, false], message: 'nie może być puste' }
-  validates :multipitch, inclusion: { in: [true, false], message: 'nie może być puste' }
+  validates :equipped, inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
+  validates :multipitch, inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
 
   validates :multipitch_style, inclusion: { in: multipitch_styles.keys }, if: :multipitch
   validates :style, inclusion: { in: styles.keys }
