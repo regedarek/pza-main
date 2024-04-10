@@ -1,7 +1,13 @@
 pl:
+  true: Tak
+  false: Nie
   login: Zaloguj Się
   register: Zarejestruj Się
   logout: Wyloguj się
+  mountain_routes:
+    index:
+      title: Lista Przejść
+      new: Dodaj nowe przejście
   registrations:
     create:
       success: Zarejestrowano pomyślnie!

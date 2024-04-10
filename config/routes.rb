@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
 
   get 'trudnosci' => 'pages#dificulties_table'
+  get 'przejscia' => 'mountain_routes#index'
 
-  root "pages#dificulties_table"
+  root "mountain_routes#index"
 end

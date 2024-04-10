@@ -31,8 +31,6 @@ class MountainRoute < ApplicationRecord
   validates :style, inclusion: { in: styles.keys }
   validates :french_difficulty, inclusion: { in: french_difficulties.keys }
 
-  has_rich_text :description
-
   def name_and_date
     return nil unless activity_date.present? && name.present?
 
