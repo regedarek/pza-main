@@ -8,14 +8,24 @@ pl:
   logout: Wyloguj się
   back: Powrót
   edit: Edycja
+  edit_password: Edytuj Hasło
+  your_profile: Twój Profil
   mountain_routes:
     index:
       title: Lista Przejść
       new: Dodaj nowe przejście
     edit:
       title: Edytuj przejście
+    show:
+      destroy: Usuń
     new:
       title: Dodaj Przejście
+  passwords:
+    success: "Zaktualizowano hasło!"
+    edit:
+      password_challange: Obecne hasło
+      password: Hasło
+      password_confirmation: Potwierdź Hasło
   registrations:
     create:
       success: Zarejestrowano pomyślnie!
@@ -58,6 +68,7 @@ pl:
         multipitch_style: Styl prowadzonych trudności
         partner: Partnerzy
         style: Styl prowadzonych trudności
+        team: Zespół
       user:
         first_name: "Imię"
         last_name: "Nazwisko"

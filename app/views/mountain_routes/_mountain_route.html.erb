@@ -22,7 +22,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.equipped') %>:</strong>
-    <%= mountain_route.equipped %>
+    <%= I18n.t mountain_route.equipped %>
   </p>
 
   <p class="my-5">
@@ -37,7 +37,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch') %>:</strong>
-    <%= mountain_route.multipitch %>
+    <%= I18n.t mountain_route.multipitch %>
   </p>
 
   <p class="my-5">
@@ -61,18 +61,13 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.partner') %>:</strong>
-    <%= mountain_route.partner %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.style') %>:</strong>
     <%= mountain_route.style %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.user_id') %>:</strong>
-    <%= mountain_route.user.name %>
+    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.team') %>:</strong>
+    <%= mountain_route.team %>
   </p>
 
   <% if action_name != "show" %>
