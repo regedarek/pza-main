@@ -19,6 +19,10 @@ pl:
   sessions:
     new:
       sign_in: Zaloguj się
+      sign_up: Zarejestruj się
+      no_account: Nie masz konta?
+      forgot_password: Zapomniałeś hasła?
+      password: Hasło
     create:
       success: Zalogowano pomyślnie!
       failure: Zły e-mail lub hasło!
@@ -48,6 +52,7 @@ pl:
         first_name: "Imię"
         last_name: "Nazwisko"
         email: "E-mail"
+        password_digest: "Hasło"
         password: "Hasło"
         password_confirmation: "Powtórz Hasło"
 
