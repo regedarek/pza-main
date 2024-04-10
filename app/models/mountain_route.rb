@@ -78,6 +78,6 @@ class MountainRoute < ApplicationRecord
   end
 
   def team
-    [user.name, partner].reject!(&:empty?).compact.join(' + ').strip
+    [user.name, partner].reject(&:empty?).compact.join(' + ').strip
   end
 end

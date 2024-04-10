@@ -15,6 +15,10 @@ pl:
     index:
       title: Lista Przejść
       new: Dodaj nowe przejście
+    create:
+      success: Przejście dodano pomyślnie!
+    update:
+      success: Przejście zaktualizowano pomyślnie!
     edit:
       title: Edytuj przejście
     show:

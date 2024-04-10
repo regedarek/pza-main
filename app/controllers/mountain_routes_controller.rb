@@ -31,7 +31,7 @@ class MountainRoutesController < ApplicationController
 
     respond_to do |format|
       if @mountain_route.save
-        format.html { redirect_to mountain_route_url(@mountain_route), notice: "Mountain route was successfully created." }
+        format.html { redirect_to mountain_route_url(@mountain_route), notice: t('mountain_routes.create.success') }
         format.json { render :show, status: :created, location: @mountain_route }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class MountainRoutesController < ApplicationController
 
     respond_to do |format|
       if @mountain_route.update(mountain_route_params)
-        format.html { redirect_to mountain_route_url(@mountain_route), notice: "Mountain route was successfully updated." }
+        format.html { redirect_to mountain_route_url(@mountain_route), notice: t("mountain_routes.update.success") }
         format.json { render :show, status: :ok, location: @mountain_route }
       else
         format.html { render :edit, status: :unprocessable_entity }
