@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :mountain_routes
+  resources :mountain_routes, path: 'przejscia'
   namespace :admin do
     resources :users
   end
