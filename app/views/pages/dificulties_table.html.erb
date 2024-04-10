@@ -1,22 +1,13 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<div class="mx-auto w-full flex">
   <div class="mx-auto">
     <h1 class="text-xl font-bold text-center">Tabela trudności wspinaczkowych</h1>
 
-    <div class="py-2 flex justify-center">
-      <table class="table-auto mx-auto">
-        <thead class="bg-gray-300">
-          <tr>
-            <th class="px-4 py-2 text-xs">Skala Francuska</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% MountainRoute.french_difficulties.keys.each do |key| %>
-              <tr>
-                <td class="border px-4 py-2 text-xs"><%= key %></td>
-              </tr>
-            <% end %>
-        </tbody>
-      </table>
+      <div class="w-full">
+      <img src="https://8a.pl/8academy/wp-content/uploads/2018/10/skala.jpg" alt="Skala trudności wspinaczkowych" class="w-full">
+      </div>
+
+      <div class="w-full">
+        <p class="text-center">Źródło: <a href="https://8a.pl/8academy/skala-trudnosci-wspinaczkowych/">8a.pl</a></p>
       </div>
   </div>
 </div>
