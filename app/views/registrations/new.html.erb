@@ -2,11 +2,6 @@
 
 <%= form_for @user, url: registration_path do |f| %>
   <% if f.object.errors.any? %>
-    <h2>
-      <%= pluralize(f.object.errors.count, "error") %>
-      <%= t('.prohibited_this_user_from_being_saved') %>
-    </h2>
-
     <ul>
       <% f.object.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,9 +10,20 @@
   <% end %>
 
   <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div>
     <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
+
   <div>
     <%= f.label :password %>
     <%= f.password_field :password %>

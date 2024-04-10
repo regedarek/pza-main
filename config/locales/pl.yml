@@ -2,6 +2,7 @@ pl:
   login: Zaloguj Się
   register: Zarejestruj Się
   registrations:
+    success: Zarejestrowano pomyślnie!
     new:
       title: Rejestracja
       sign_up: Zarejestruj się
