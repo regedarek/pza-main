@@ -1,4 +1,5 @@
 pl:
+  error: błędów
   pundit:
     not_authorized: Brak dostępu do tej strony, sprawdź czy jesteś zalogowany!
   true: Tak
@@ -49,11 +50,18 @@ pl:
     destroy:
       success: Wylogowano pomyślnie!
   activerecord:
+    errors:
+      models:
+        mountain_route: w polach przejścia
     models:
       user: Użytkownik
       mountain_route: Przejście
     attributes:
       mountain_route:
+        sport_types:
+          speleo: Jaskinie
+          climbing: Wspinaczka
+          skimo: Narciarstwo Wysokogórskie
         name: Nazwa
         description: Dodatkowy Opis
         length: Długość (m)

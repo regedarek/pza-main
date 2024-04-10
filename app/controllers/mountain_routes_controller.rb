@@ -75,6 +75,6 @@ class MountainRoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mountain_route_params
-      params.require(:mountain_route).permit(:activity_date, :area, :custom_difficulty, :equipped, :french_difficulty, :length, :multipitch, :multipitch_difficulty, :multipitch_lead, :multipitch_number, :multipitch_style, :name, :partner, :style, :description)
+      params.require(:mountain_route).permit(:activity_date, :sport_type, :area, :custom_difficulty, :equipped, :french_difficulty, :length, :multipitch, :multipitch_difficulty, :multipitch_lead, :multipitch_number, :multipitch_style, :name, :partner, :style, :description)
     end
 end

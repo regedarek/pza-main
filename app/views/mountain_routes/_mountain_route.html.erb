@@ -5,6 +5,11 @@
   </p>
 
   <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.sport_type') %>:</strong>
+    <%= MountainRoute.human_enum_name(:sport_type, mountain_route.sport_type) %>
+  </p>
+
+  <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.activity_date') %>:</strong>
     <%= mountain_route.activity_date %>
   </p>

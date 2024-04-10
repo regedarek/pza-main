@@ -1,8 +1,6 @@
 <%= form_with(model: mountain_route, class: "contents") do |form| %>
   <% if mountain_route.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(mountain_route.errors.count, "error") %> <%= t('activerecord.errors.models.mountain_route') %></h2>
-
       <ul>
         <% mountain_route.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,9 +9,25 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="mt-10 grid grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-12">
+    <div class="sm:col-span-6">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="sm:col-span-6">
+      <%= form.label :sport_type, "Styl", class: "block leading-6 text-gray-900" %>
+      <div class="mt-2">
+        <%= form.select :sport_type, options_for_select(
+            MountainRoute.sport_types.map { |key, value|
+                [MountainRoute.human_enum_name(:sport_type, key), MountainRoute.sport_types.key(value)]
+            }, @mountain_route.sport_type
+          ),
+          class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+          include_blank: ''
+        %>
+      </div>
+    </div>
   </div>
 
   <div class="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-12">
@@ -61,6 +75,7 @@
             %>
           </div>
         </div>
+
         <div class="sm:col-span-4">
           <%= form.label :french_difficulty, class: "block text-sm font-medium leading-6 text-gray-900" %>
           <div class="mt-2">

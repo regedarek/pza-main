@@ -17,6 +17,7 @@
 #  name                  :string
 #  partner               :string
 #  slug                  :string
+#  sport_type            :integer          not null
 #  style                 :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
@@ -33,6 +34,10 @@
 class MountainRoute < ApplicationRecord
   extend FriendlyId
   friendly_id :name_and_date, use: :slugged
+
+  enum sport_type: {
+    climbing: 0, speleo: 1, skimo: 2
+  }
 
   enum multipitch_style: {
     'OS': 0, 'RP': 1, 'FL': 2, 'AF': 3
@@ -51,7 +56,7 @@ class MountainRoute < ApplicationRecord
 
   belongs_to :user
 
-  validates :user_id, :activity_date, :name, :area, :length, :french_difficulty,
+  validates :user_id, :activity_date, :sport_type, :name, :area, :length, :french_difficulty,
     :style, presence: true
 
   validates :multipitch_style, :multipitch_number, :multipitch_lead,
@@ -73,6 +78,6 @@ class MountainRoute < ApplicationRecord
   end
 
   def team
-    [user.name, partner].join(' + ').strip
+    [user.name, partner].reject!(&:empty?).compact.join(' + ').strip
   end
 end
