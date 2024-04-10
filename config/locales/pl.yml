@@ -43,7 +43,7 @@ pl:
     attributes:
       mountain_route:
         name: Nazwa
-        length: Długość
+        length: Długość (m)
         activity_date: Data
         area: Rejon
         custom_difficulty: Trudność (skala oryginalna)
