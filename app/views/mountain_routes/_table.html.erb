@@ -14,6 +14,7 @@
               <th scope="col" class="px-6 py-4"><abbr title="Długość">Długość</abbr></th>
               <th scope="col" class="px-6 py-4"><abbr title="Ubezpieczona">Ubezpieczona</abbr></th>
               <th scope="col" class="px-6 py-4"><abbr title="Wielowyciągowa">Wielowyciągowa</abbr></th>
+              <th scope="col" class="px-6 py-4"><abbr title="Zespół">Zespół</abbr></th>
             </tr>
           </thead>
           <tbody>
@@ -27,6 +28,7 @@
                 <td class="whitespace-nowrap px-6 py-4"><%= mountain_route.length %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= I18n.t(mountain_route.equipped?) %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= I18n.t(mountain_route.multipitch?) %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= mountain_route.team %></td>
                 <td>
                   <div>
                     <% if policy(mountain_route).edit? %>

@@ -36,4 +36,8 @@ class MountainRoute < ApplicationRecord
 
     "#{activity_date&.to_date} #{name}"
   end
+
+  def team
+    [user.name, partner].join(' + ').strip
+  end
 end
