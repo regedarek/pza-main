@@ -1,0 +1,18 @@
+pl:
+  login: Zaloguj Się
+  register: Zarejestruj Się
+  registrations:
+    new:
+      title: Rejestracja
+      sign_up: Zarejestruj się
+  activerecord:
+    models:
+      user: Użytkownik
+    attributes:
+      user:
+        first_name: "Imię"
+        last_name: "Nazwisko"
+        email: "E-mail"
+        password: "Hasło"
+        password_confirmation: "Powtórz Hasło"
+

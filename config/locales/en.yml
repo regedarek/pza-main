@@ -1,4 +1,6 @@
 en:
+  login: Sign In
+  register: Sign Up
   registrations:
     new:
       title: Registration
