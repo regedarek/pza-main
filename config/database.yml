@@ -10,6 +10,6 @@ development:
 production:
   <<: *default
   database: pza_main_production
-  username: kamal_pg
+  username: pza
   password: <%= ENV["POSTGRES_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>

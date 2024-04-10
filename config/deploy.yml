@@ -9,10 +9,6 @@ servers:
   web:
     hosts:
       - 146.59.94.122
-    labels:
-      traefik.http.routers.blog.entrypoints: websecure
-      traefik.http.routers.blog.rule: Host(`pza.kw.krakow.pl`)
-      traefik.http.routers.blog.tls.certresolver: letsencrypt
 
 registry:
   username: regedarek
@@ -45,20 +41,3 @@ accessories:
       - db/production.sql:/docker-entrypoint-initdb.d/setup.sql
     directories:
       - data:/var/lib/postgresql/data
-
-traefik:
-  options:
-    publish:
-      - "443:443"
-    volume:
-      - "/letsencrypt/acme.json:/letsencrypt/acme.json" # To save the configuration file.
-  args:
-    entryPoints.web.address: ":80"
-    entryPoints.websecure.address: ":443"
-    entryPoints.web.http.redirections.entryPoint.to: websecure
-    entryPoints.web.http.redirections.entryPoint.scheme: https
-    entryPoints.web.http.redirections.entrypoint.permanent: true
-    certificatesResolvers.letsencrypt.acme.email: "dariusz.finster@gmail.com"
-    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
-    certificatesResolvers.letsencrypt.acme.httpchallenge: true
-    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
