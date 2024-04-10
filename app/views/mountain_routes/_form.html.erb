@@ -86,34 +86,38 @@
 
   <div class="rounded overflow-hidden shadow-lg">
     <div class="px-12 pt-4 pb-2 bg-gray-100">
-      <div class="my-5">
-        <%= form.label :multipitch %>
-        <%= form.check_box :multipitch, class: "block mt-2 h-5 w-5" %>
-      </div>
+      <div data-controller='toggle' class="m-2">
+        <div data-action='my-5'>
+          <%= form.label :multipitch %>
+          <%= form.check_box :multipitch, class: "block mt-2 h-5 w-5", data: { action: "toggle#toggleInput" } %>
+        </div>
 
-      <div class="my-5">
-        <%= form.label :multipitch_difficulty %>
-        <%= form.text_field :multipitch_difficulty, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
+        <div data-toggle-target='toggleable' class="<%= @mountain_route.multipitch? ? "" : "hidden" %>">
+          <div class="my-5">
+            <%= form.label :multipitch_difficulty %>
+            <%= form.text_field :multipitch_difficulty, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+          </div>
 
-      <div class="my-5">
-        <%= form.label :multipitch_lead %>
-        <%= form.number_field :multipitch_lead, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
+          <div class="my-5">
+            <%= form.label :multipitch_lead %>
+            <%= form.number_field :multipitch_lead, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+          </div>
 
-      <div class="my-5">
-        <%= form.label :multipitch_number %>
-        <%= form.number_field :multipitch_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
+          <div class="my-5">
+            <%= form.label :multipitch_number %>
+            <%= form.number_field :multipitch_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+          </div>
 
-      <div class="my-5">
-            <%= form.select :multipitch_style, options_for_select(
-                MountainRoute.styles.map { |key, value|
-                    [key.upcase, MountainRoute.multipitch_styles.key(value)]
-                }, @mountain_route.multipitch_style
-              ),
-              include_blank: 'Styl prowadzonych trudności'
-            %>
+          <div class="my-5">
+                <%= form.select :multipitch_style, options_for_select(
+                    MountainRoute.styles.map { |key, value|
+                        [key.upcase, MountainRoute.multipitch_styles.key(value)]
+                    }, @mountain_route.multipitch_style
+                  ),
+                  include_blank: 'Styl prowadzonych trudności'
+                %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
