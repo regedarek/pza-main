@@ -1,11 +1,21 @@
 pl:
   login: Zaloguj Się
   register: Zarejestruj Się
+  logout: Wyloguj się
   registrations:
-    success: Zarejestrowano pomyślnie!
+    create:
+      success: Zarejestrowano pomyślnie!
     new:
       title: Rejestracja
       sign_up: Zarejestruj się
+  sessions:
+    new:
+      sign_in: Zaloguj się
+    create:
+      success: Zalogowano pomyślnie!
+      failure: Zły e-mail lub hasło!
+    destroy:
+      success: Wylogowano pomyślnie!
   activerecord:
     models:
       user: Użytkownik
