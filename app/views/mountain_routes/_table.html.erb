@@ -24,7 +24,7 @@
                 <td class="whitespace-nowrap px-6 py-4"><%= link_to mountain_route.name, mountain_route %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= link_to mountain_route.area, mountain_route %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= mountain_route.french_difficulty %></td>
-                <td class="whitespace-nowrap px-6 py-4"><%= mountain_route.team %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= sanitize team_link(mountain_route) %></td>
                 <td>
                   <div>
                     <% if policy(mountain_route).edit? %>
