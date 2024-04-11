@@ -38,4 +38,12 @@ class User < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+
+  def title
+    "Wspinacz"
+  end
+
+  def club
+    "KW Kraków"
+  end
 end
