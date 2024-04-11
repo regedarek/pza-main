@@ -66,7 +66,9 @@ pl:
         sport_type: Rodzaj sportu
         sport_types:
           speleo: Jaskinie
-          climbing: Wspinaczka
+          trad_climbing: Wspinaczka Tradowa
+          winter_climbing: Wspinaczka Zimowa
+          sport_climbing: Wspinaczka Sportowa
           skimo: Narciarstwo Wysokogórskie
         name: Nazwa
         description: Dodatkowy Opis

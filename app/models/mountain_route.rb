@@ -36,7 +36,7 @@ class MountainRoute < ApplicationRecord
   friendly_id :name_and_date, use: :slugged
 
   enum sport_type: {
-    climbing: 0, speleo: 1, skimo: 2
+    trad_climbing: 0, speleo: 1, skimo: 2, winter_climbing: 3, sport_climbing: 4
   }
 
   enum multipitch_style: {
