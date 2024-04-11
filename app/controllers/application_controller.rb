@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  if Rails.env.development?
+    include ActiveStorage::SetCurrent
+    before_action do
+      ActiveStorage::Current.url_options = {protocol: request.protocol, host: request.host, port: request.port}
+    end
+  end
+
   private
 
   def authenticate_user!
