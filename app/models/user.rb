@@ -20,6 +20,7 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  has_one_attached :avatar
   has_secure_password
 
   normalizes :email, with: -> (email) { email.strip.downcase }

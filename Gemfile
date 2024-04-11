@@ -18,6 +18,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem 'pundit'
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   gem 'annotate'
