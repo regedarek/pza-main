@@ -19,10 +19,10 @@
             <% mountain_routes.each do |mountain_route| %>
 
               <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10">
-                <th class="whitespace-nowrap px-6 py-4 font-medium"><%= MountainRoute.human_enum_name(:sport_type, mountain_route.sport_type) %></th>
-                <th class="whitespace-nowrap px-6 py-4 font-medium"><%= mountain_route.activity_date %></th>
+                <th class="whitespace-nowrap px-6 py-4 font-medium"><%= link_to MountainRoute.human_enum_name(:sport_type, mountain_route.sport_type), mountain_route %></td>
+                <th class="whitespace-nowrap px-6 py-4 font-medium"><%= link_to mountain_route.activity_date, mountain_route %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= link_to mountain_route.name, mountain_route %></td>
-                <td class="whitespace-nowrap px-6 py-4"><%= mountain_route.area %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= link_to mountain_route.area, mountain_route %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= mountain_route.french_difficulty %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= mountain_route.team %></td>
                 <td>

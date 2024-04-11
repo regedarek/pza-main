@@ -3,10 +3,12 @@
   <div class="mx-auto w-full">
     <%= render @mountain_route %>
 
-    <%= link_to t('edit'), edit_mountain_route_path(@mountain_route), class: "mt-2 rounded-lg py-3 px-5 bg-green-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to t('.destroy'), mountain_route_path(@mountain_route), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" %>
-    </div>
+    <% if policy(@mountain_route).edit? %>
+      <%= link_to t('edit'), edit_mountain_route_path(@mountain_route), class: "mt-2 rounded-lg py-3 px-5 bg-green-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to t('.destroy'), mountain_route_path(@mountain_route), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" %>
+      </div>
+    <% end %>
     <%= link_to t('back'), mountain_routes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

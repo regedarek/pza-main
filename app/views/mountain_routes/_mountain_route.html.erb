@@ -20,18 +20,25 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.custom_difficulty') %>:</strong>
-    <%= mountain_route.custom_difficulty %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.equipped') %>:</strong>
     <%= I18n.t mountain_route.equipped %>
   </p>
 
+  <% if mountain_route.custom_difficulty? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.custom_difficulty') %>:</strong>
+      <%= mountain_route.custom_difficulty %>
+    </p>
+  <% end %>
+
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.french_difficulty') %>:</strong>
     <%= mountain_route.french_difficulty %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.style') %>:</strong>
+    <%= mountain_route.style %>
   </p>
 
   <p class="my-5">
@@ -44,44 +51,44 @@
     <%= I18n.t mountain_route.multipitch %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_difficulty') %>:</strong>
-    <%= mountain_route.multipitch_difficulty %>
-  </p>
+  <% if mountain_route.multipitch? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_difficulty') %>:</strong>
+      <%= mountain_route.multipitch_difficulty %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_lead') %>:</strong>
-    <%= mountain_route.multipitch_lead %>
-  </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_lead') %>:</strong>
+      <%= mountain_route.multipitch_lead %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_number') %>:</strong>
-    <%= mountain_route.multipitch_number %>
-  </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_number') %>:</strong>
+      <%= mountain_route.multipitch_number %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_style') %>:</strong>
-    <%= mountain_route.multipitch_style %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.style') %>:</strong>
-    <%= mountain_route.style %>
-  </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.multipitch_style') %>:</strong>
+      <%= mountain_route.multipitch_style %>
+    </p>
+  <% end %>
 
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.team') %>:</strong>
     <%= mountain_route.team %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.description') %>:</strong>
-    <%= mountain_route.description %>
-  </p>
+  <% if mountain_route.description.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.description') %>:</strong>
+      <%= mountain_route.description %>
+    </p>
+  <% end %>
 
   <% if action_name != "show" %>
     <%= link_to t('.show', default: t("helpers.links.show")), mountain_route, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to t('.edit', default: t("helpers.links.edit")), edit_mountain_route_path(mountain_route), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <% if policy(mountain_route).edit? %>
+      <%= link_to t('.edit', default: t("helpers.links.edit")), edit_mountain_route_path(mountain_route), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
   <% end %>
 </div>
