@@ -25,6 +25,8 @@ env:
   secret:
     - RAILS_MASTER_KEY
     - POSTGRES_PASSWORD
+    - S3_ACCESS_KEY
+    - S3_SECRET_KEY
 
 builder:
   args:
