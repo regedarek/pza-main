@@ -75,7 +75,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.team') %>:</strong>
-    <%= mountain_route.team %>
+    <%= sanitize team_link(mountain_route) %>
   </p>
 
   <% if mountain_route.description.present? %>
