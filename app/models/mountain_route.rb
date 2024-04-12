@@ -32,7 +32,19 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class MountainRoute < ApplicationRecord
+  include PgSearch::Model
   extend FriendlyId
+
+  has_rich_text :description
+
+  pg_search_scope :search,
+    against: [:name, :area, :partner],
+    associated_against: {
+      user: [:first_name, :last_name],
+      rich_text_description: [:body]
+    },
+    using: [:tsearch]
+
   friendly_id :name_and_date, use: :slugged
 
   enum sport_type: {
@@ -68,8 +80,6 @@ class MountainRoute < ApplicationRecord
   validates :multipitch_style, inclusion: { in: multipitch_styles.keys }, if: :multipitch
   validates :style, inclusion: { in: styles.keys }
   validates :french_difficulty, inclusion: { in: french_difficulties.keys }
-
-  has_rich_text :description
 
   def name_and_date
     return nil unless activity_date.present? && name.present?

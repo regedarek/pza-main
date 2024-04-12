@@ -1,29 +1,32 @@
 class MountainRoutesController < ApplicationController
   before_action :set_mountain_route, only: %i[ show edit update destroy ]
 
-  # GET /mountain_routes or /mountain_routes.json
   def index
-    @mountain_routes = MountainRoute.all
+    mountain_routes = MountainRoute.arel_table
+    query = mountain_routes[:id].not_eq(nil)
+    query = query.and(mountain_routes[:activity_date].gteq( Date.new(params.dig(:q, :year).to_i, 1, 1).beginning_of_year)) if params.dig(:q, :year).present?
+    query = query.and(mountain_routes[:sport_type].eq(params.dig(:q, :sport_type))) if params.dig(:q, :sport_type).present?
+
+    @mountain_routes = MountainRoute.where(query).search(params.dig(:q, :search)).order(activity_date: :desc) if params.dig(:q, :search).present?
+    @mountain_routes = MountainRoute.where(query).order(activity_date: :desc) if params.dig(:q, :search).blank?
+
+    @pagy, @mountain_routes = pagy(@mountain_routes)
   end
 
-  # GET /mountain_routes/1 or /mountain_routes/1.json
   def show
     authorize @mountain_route
   end
 
-  # GET /mountain_routes/new
   def new
     @mountain_route = MountainRoute.new
 
     authorize @mountain_route
   end
 
-  # GET /mountain_routes/1/edit
   def edit
     authorize @mountain_route
   end
 
-  # POST /mountain_routes or /mountain_routes.json
   def create
     @mountain_route = current_user.mountain_routes.new(mountain_route_params)
 
@@ -40,7 +43,6 @@ class MountainRoutesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /mountain_routes/1 or /mountain_routes/1.json
   def update
     authorize @mountain_route
 
@@ -55,7 +57,6 @@ class MountainRoutesController < ApplicationController
     end
   end
 
-  # DELETE /mountain_routes/1 or /mountain_routes/1.json
   def destroy
     authorize @mountain_route
 
@@ -68,12 +69,10 @@ class MountainRoutesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_mountain_route
       @mountain_route = MountainRoute.friendly.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def mountain_route_params
       params.require(:mountain_route).permit(:activity_date, :sport_type, :area, :custom_difficulty, :equipped, :french_difficulty, :length, :multipitch, :multipitch_difficulty, :multipitch_lead, :multipitch_number, :multipitch_style, :name, :partner, :style, :description)
     end

@@ -18,6 +18,8 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem 'pundit'
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
+gem 'pg_search'
+gem 'pagy', '~> 8.1'
 
 group :production do
   gem "aws-sdk-s3", require: false

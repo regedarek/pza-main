@@ -8,5 +8,7 @@
 
   <div id="mountain_routes" class="min-w-full">
     <%= render 'table', mountain_routes: @mountain_routes %>
+
+    <%== pagy_nav(@pagy) %>
   </div>
 </div>
