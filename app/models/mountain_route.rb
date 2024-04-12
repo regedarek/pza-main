@@ -78,7 +78,7 @@ class MountainRoute < ApplicationRecord
     :style, presence: true
 
   validates :multipitch_style, :multipitch_number, :multipitch_lead,
-    :multipitch_difficulty, :partner, presence: true, if: :multipitch
+    :multipitch_difficulty, presence: true, if: :multipitch
 
   validates :equipped, inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
   validates :multipitch, inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
