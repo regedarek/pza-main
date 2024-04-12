@@ -139,9 +139,9 @@
 
   <div class="my-5">
     <% mountain_route.images.each do |image| %>
-      <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+      <%= form.hidden_field :images, multiple: true, value: image.signed_id unless image.new_record? %>
     <% end %>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.file_field :images, multiple: true, direct_upload: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
