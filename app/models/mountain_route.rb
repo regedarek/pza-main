@@ -71,6 +71,8 @@ class MountainRoute < ApplicationRecord
   }
 
   belongs_to :user
+  has_many :mountain_route_partners, dependent: :destroy
+  has_many :partners, through: :mountain_route_partners, source: :user
 
   validates :user_id, :activity_date, :sport_type, :name, :area, :length, :french_difficulty,
     :style, presence: true
@@ -92,6 +94,6 @@ class MountainRoute < ApplicationRecord
   end
 
   def team
-    [user.name, partner].reject(&:empty?).compact.join(' + ').strip
+    [partners.map(&:name), partner].flatten.reject(&:empty?).compact.join(' + ').strip
   end
 end

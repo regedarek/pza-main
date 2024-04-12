@@ -14,7 +14,7 @@ pl:
   mountain_routes:
     index:
       search: Wyszukaj
-      year: Od Roku
+      year: Od Roku(YYYY)
       title: Lista Przejść
       new: Dodaj nowe przejście
     create:

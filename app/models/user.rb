@@ -32,7 +32,10 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  has_many :mountain_routes, dependent: :destroy
+  has_many :added_mountain_routes, dependent: :destroy, class_name: 'MountainRoute', foreign_key: :user_id
+
+  has_many :mountain_route_partners, dependent: :destroy
+  has_many :mountain_routes, through: :mountain_route_partners, source: :mountain_route
 
   def admin?
     false

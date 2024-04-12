@@ -22,7 +22,7 @@ module Admin
 
     # POST /users or /users.json
     def create
-      @user = User.new(user_params)
+      @user = User.new(user_params.merge(password: SecureRandom.hex(10)))
 
       respond_to do |format|
         if @user.save
