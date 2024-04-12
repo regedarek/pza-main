@@ -13,6 +13,8 @@ pl:
   your_profile: Twój Profil
   mountain_routes:
     index:
+      search: Wyszukaj
+      year: Od Roku
       title: Lista Przejść
       new: Dodaj nowe przejście
     create:

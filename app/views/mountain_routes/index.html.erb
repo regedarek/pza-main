@@ -1,9 +1,25 @@
 <div class="w-full">
   <%= render 'shared/flash' %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-2xl"></h1>
-    <%= link_to t('.new'), new_mountain_route_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+
+  <div class="grid grid-cols-2 w-full">
+    <%= form_with url: mountain_routes_path, method: :get do %>
+      <div class="grid grid-cols-3 w-full">
+          <div class="">
+            <%= text_field_tag :search, params[:search], class: "rounded-lg py-3 px-5 text-black block font-medium w-2/3", placeholder: t('.search') %>
+          </div>
+          <div class="">
+            <%= text_field_tag :year, params[:year], class: "rounded-lg py-3 px-5 text-black block font-medium w-2/3", placeholder: t('.year') %>
+          </div>
+          <div class="">
+            <%= select_tag :sport_type, options_for_select(MountainRoute.sport_types.keys.map { |sport_type| [t("activerecord.attributes.mountain_route.sport_types.#{sport_type}"), sport_type] }, params[:sport_type]), onchange: "this.form.submit();", include_blank: '', class: "rounded-lg py-3 px-5 text-black block font-medium w-3/3" %>
+          </div>
+      </div>
+    <% end %>
+    <div class="place-content-end place-self-end">
+      <h1 class="font-bold text-2xl"></h1>
+      <%= link_to t('.new'), new_mountain_route_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
   </div>
 
   <div id="mountain_routes" class="min-w-full">

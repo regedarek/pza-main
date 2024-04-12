@@ -4,11 +4,11 @@ class MountainRoutesController < ApplicationController
   def index
     mountain_routes = MountainRoute.arel_table
     query = mountain_routes[:id].not_eq(nil)
-    query = query.and(mountain_routes[:activity_date].gteq( Date.new(params.dig(:q, :year).to_i, 1, 1).beginning_of_year)) if params.dig(:q, :year).present?
-    query = query.and(mountain_routes[:sport_type].eq(params.dig(:q, :sport_type))) if params.dig(:q, :sport_type).present?
+    query = query.and(mountain_routes[:activity_date].gteq( Date.new(params.dig(:year).to_i, 1, 1).beginning_of_year)) if params.dig(:year).present?
+    query = query.and(mountain_routes[:sport_type].eq(params.dig(:sport_type))) if params.dig(:sport_type).present?
 
-    @mountain_routes = MountainRoute.where(query).search(params.dig(:q, :search)).order(activity_date: :desc) if params.dig(:q, :search).present?
-    @mountain_routes = MountainRoute.where(query).order(activity_date: :desc) if params.dig(:q, :search).blank?
+    @mountain_routes = MountainRoute.where(query).search(params.dig(:search)).order(activity_date: :desc) if params.dig(:search).present?
+    @mountain_routes = MountainRoute.where(query).order(activity_date: :desc) if params.dig(:search).blank?
 
     @pagy, @mountain_routes = pagy(@mountain_routes)
   end
