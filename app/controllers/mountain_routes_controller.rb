@@ -31,6 +31,7 @@ class MountainRoutesController < ApplicationController
 
   def create
     @mountain_route = current_user.mountain_routes.new(mountain_route_params)
+    @mountain_route.user = current_user
 
     authorize @mountain_route
 
