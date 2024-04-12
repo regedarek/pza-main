@@ -21,6 +21,8 @@ class MountainRoutesController < ApplicationController
     @mountain_route = MountainRoute.new
 
     authorize @mountain_route
+
+    @mountain_route.partner_ids = [current_user.id]
   end
 
   def edit

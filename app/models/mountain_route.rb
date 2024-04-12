@@ -86,6 +86,7 @@ class MountainRoute < ApplicationRecord
   validates :multipitch_style, inclusion: { in: multipitch_styles.keys }, if: :multipitch
   validates :style, inclusion: { in: styles.keys }
   validates :french_difficulty, inclusion: { in: french_difficulties.keys }
+  validates :partners, presence: true
 
   def name_and_date
     return nil unless activity_date.present? && name.present?

@@ -8,3 +8,4 @@ pin "tailwindcss-stimulus-components" # @5.1.1
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
+pin "slim-select" # @2.8.2

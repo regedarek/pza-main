@@ -46,10 +46,15 @@
       <%= form.text_field :area, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
   </div>
-
-  <div class="sm:col-span-12 my-5">
+  <div class="mt-10 grid grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-12">
+  <div class="sm:col-span-6 my-5">
+    <%= form.label :partners %>
+    <%= form.select :partner_ids, User.pluck(:first_name, :id), {}, { multiple: true, data: { controller: "select" } } %>
+  </div>
+  <div class="sm:col-span-6 my-5">
     <%= form.label :partner %>
     <%= form.text_field :partner, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
   </div>
 
   <div class="space-y-12">

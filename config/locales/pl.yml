@@ -82,10 +82,11 @@ pl:
         french_difficulty: Trudność (skala francuska)
         multipitch: Wielowyciągowa
         multipitch_difficulty: Prowadzone trudności
+        partners: Partnerzy
         multipitch_lead: Ilość prowadzonych wyciągów
         multipitch_number: Ilość wyciągów
         multipitch_style: Styl prowadzonych trudności
-        partner: Partnerzy
+        partner: Partnerzy spoza aplikacji
         style: Styl prowadzonych trudności
         team: Zespół
       user:
