@@ -1,7 +1,7 @@
 <div class="w-full">
   <%= render 'shared/flash' %>
   <div class="mx-auto w-full">
-    <%= render @mountain_route %>
+    <%= render 'mountain_route_responsive', mountain_route: @mountain_route %>
 
     <% if policy(@mountain_route).edit? %>
       <%= link_to t('edit'), edit_mountain_route_path(@mountain_route), class: "mt-2 rounded-lg py-3 px-5 bg-green-100 inline-block font-medium" %>

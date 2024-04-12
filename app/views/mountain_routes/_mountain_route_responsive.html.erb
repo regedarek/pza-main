@@ -1,0 +1,67 @@
+<div id="<%= dom_id mountain_route %>" class="grid lg:grid-cols-2 gap-5">
+  <div>
+    <div class="px-4 sm:px-0">
+      <h3 class="text-base font-semibold leading-7 text-gray-900"><%= mountain_route.name %></h3>
+      <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+        <%= MountainRoute.human_enum_name(:sport_type, mountain_route.sport_type) %>
+      </p>
+    </div>
+    <div class="mt-6 border-t border-gray-100">
+      <dl class="divide-y divide-gray-100">
+        <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.activity_date' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.activity_date %></dd>
+        </div>
+        <div class="bg-white px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.french_difficulty' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.french_difficulty %></dd>
+        </div>
+        <div class="bg-white px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.custom_difficulty' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.custom_difficulty %></dd>
+        </div>
+        <div class="bg-white px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.style' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.style %></dd>
+        </div>
+        <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.area' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.area %></dd>
+        </div>
+        <div class="bg-white px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.length' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.length %></dd>
+        </div>
+        <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.equipped' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= I18n.t mountain_route.equipped %></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+  <div>
+    <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+      <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.description %></dd>
+    </div>
+    <div class="mb-5 bg-white-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+      <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.partners' %></dt>
+      <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+        <%= sanitize team_link(mountain_route) %>
+      </dd>
+    </div>
+    <% if mountain_route.images.attached? %>
+      <div class="grid grid-cols-4 gap-5">
+        <% mountain_route.images.each do |image| %>
+          <div data-controller="modal">
+            <dialog data-modal-target="dialog" class="p-8 rounded-lg backdrop:bg-black/80">
+              <%= image_tag image, class: "rounded-lg" %>
+              <button autofocus data-action="modal#close" class="px-2.5 py-1 bg-blue-500 text-white text-sm rounded">Close</button>
+            </dialog>
+
+            <%= image_tag image.variant(:thumb), class: "rounded-lg", data: { action: "click->modal#open" } %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
