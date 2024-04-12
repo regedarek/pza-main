@@ -138,6 +138,13 @@
   </div>
 
   <div class="my-5">
+    <% mountain_route.images.each do |image| %>
+      <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+    <% end %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :description %>
     <%= form.rich_text_area :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>

@@ -85,6 +85,23 @@
     </p>
   <% end %>
 
+  <% if mountain_route.images.attached? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= t('activerecord.attributes.mountain_route.images') %>:</strong>
+      <% mountain_route.images.each do |image| %>
+        <div data-controller="modal">
+          <dialog data-modal-target="dialog" class="p-8 rounded-lg backdrop:bg-black/80">
+            <%= image_tag image, class: "rounded-lg" %>
+            <button autofocus data-action="modal#close" class="px-2.5 py-1 bg-blue-500 text-white text-sm rounded">Close</button>
+          </dialog>
+
+          <%= image_tag image.variant(:thumb), class: "rounded-lg", data: { action: "click->modal#open" } %>
+        </div>
+      <% end %>
+    </p>
+  <% end %>
+
+
   <% if action_name != "show" %>
     <%= link_to t('.show', default: t("helpers.links.show")), mountain_route, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <% if policy(mountain_route).edit? %>

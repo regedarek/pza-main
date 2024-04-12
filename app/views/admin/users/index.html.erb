@@ -30,7 +30,11 @@
                   <td class="whitespace nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
                     <div class="flex items-center">
                       <div class="h-11 w-11 flex-shrink-0">
-                        <img class="h-11 w-11 rounded-full" src="<%= user.avatar.present? ? user.avatar.url : 'https://picsum.photos/200' %>" alt="">
+                        <% if user.avatar.attached? %>
+                          <%= image_tag user.avatar.variant(:thumb), class: "h-11 w-11 rounded-full" %>
+                        <% else %>
+                          <%= image_tag "https://picsum.photos/200", class: "h-11 w-11 rounded-full" %>
+                        <% end %>
                       </div>
                       <div class="ml-4">
                         <div class="font-medium text-gray-900"><%= user.name %></div>
