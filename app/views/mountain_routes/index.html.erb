@@ -2,34 +2,27 @@
   <%= render 'shared/flash' %>
 
 
-  <div class="flex">
-    <div class="flex-auto">
+  <div class="grid lg:grid-cols-2 gap-4">
+    <div class="">
       <%= form_with url: mountain_routes_path, method: :get do %>
-        <div class="grid grid-cols-4">
-            <div class="">
-              <%= text_field_tag :search, params[:search], class: "rounded-lg py-3 px-5 text-black block font-medium", placeholder: t('.search') %>
-            </div>
-            <div class="">
-              <%= text_field_tag :year, params[:year], class: "rounded-lg py-3 px-5 text-black block font-medium", placeholder: t('.year') %>
-            </div>
-            <div class="">
-              <%= select_tag :sport_type, options_for_select(MountainRoute.sport_types.keys.map { |sport_type| [t("activerecord.attributes.mountain_route.sport_types.#{sport_type}"), sport_type] }, params[:sport_type]), onchange: "this.form.submit();", include_blank: '', class: "rounded-lg py-3 px-5 text-black block font-medium" %>
-            </div>
-            <div class="">
-              <%= submit_tag t('.search'), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium mx-5 hidden" %>
-            </div>
+        <div class="grid lg:grid-cols-3 gap-4">
+              <%= text_field_tag :search, params[:search], class: "", placeholder: t('.search') %>
+              <%= text_field_tag :year, params[:year], class: "", placeholder: t('.year') %>
+              <%= select_tag :sport_type, options_for_select(MountainRoute.sport_types.keys.map { |sport_type| [t("activerecord.attributes.mountain_route.sport_types.#{sport_type}"), sport_type] }, params[:sport_type]), onchange: "this.form.submit();", include_blank: '', class: "" %>
+              <%= submit_tag t('.search'), class: "hidden" %>
         </div>
       <% end %>
     </div>
-    <div class="flex-auto">
-      <h1 class="font-bold text-2xl"></h1>
-      <%= link_to t('.new'), new_mountain_route_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <div class="flex flex-row-reverse">
+      <%= link_to t('.new'), new_mountain_route_path, class: "max-sm:w-full rounded-lg py-3 px-5 bg-blue-600 text-white justify-end font-medium" %>
     </div>
   </div>
 
-  <div id="mountain_routes" class="min-w-full">
+  <div id="mountain_routes" class="mt-5 min-w-full">
     <%= render 'table', mountain_routes: @mountain_routes %>
 
-    <%== pagy_nav(@pagy) %>
+    <div class="flex py-5 justify-center">
+      <%== pagy_nav(@pagy) %>
+    </div>
   </div>
 </div>
