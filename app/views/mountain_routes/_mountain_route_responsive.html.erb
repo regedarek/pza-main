@@ -40,9 +40,11 @@
     </div>
   </div>
   <div>
-    <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
-      <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.description %></dd>
-    </div>
+    <% if mountain_route.description.present? %>
+      <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.description %></dd>
+      </div>
+    <% end %>
     <div class="mb-5 bg-white-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
       <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.partners' %></dt>
       <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
