@@ -8,6 +8,7 @@ pl:
   register: Zarejestruj Się
   logout: Wyloguj się
   back: Powrót
+  delete: Usuń
   edit: Edycja
   edit_password: Edytuj Hasło
   your_profile: Twój Profil
@@ -17,6 +18,11 @@ pl:
       year: Od Roku(YYYY)
       title: Lista Przejść
       new: Dodaj nowe przejście
+    responsive_table:
+      date: Data / Typ
+      name: Nazwa / Rejon
+      difficulty: Trudność
+      team: Zespół
     create:
       success: Przejście dodano pomyślnie!
     update:
