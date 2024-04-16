@@ -1,6 +1,8 @@
 module Admin
   class UsersController < ApplicationController
     before_action :set_user, only: %i[ show edit update destroy ]
+    before_action :authenticate_user!
+    before_action :authenticate_admin!
 
     # GET /users or /users.json
     def index
@@ -62,6 +64,10 @@ module Admin
       # Use callbacks to share common setup or constraints between actions.
       def set_user
         @user = User.friendly.find(params[:id])
+      end
+
+      def authenticate_admin!
+        redirect_to root_path, alert: "Nie masz dostępu!" unless current_user.admin?
       end
 
       # Only allow a list of trusted parameters through.
