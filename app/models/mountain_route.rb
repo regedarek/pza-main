@@ -3,20 +3,21 @@
 # Table name: mountain_routes
 #
 #  id                    :uuid             not null, primary key
-#  activity_date         :date
+#  activity_date         :date             not null
 #  area                  :string
 #  custom_difficulty     :string
 #  equipped              :boolean
 #  french_difficulty     :integer
+#  hidden                :boolean          default(FALSE), not null
 #  length                :integer
 #  multipitch            :boolean
 #  multipitch_difficulty :string
 #  multipitch_lead       :integer
 #  multipitch_number     :integer
 #  multipitch_style      :integer
-#  name                  :string
+#  name                  :string           not null
 #  partner               :string
-#  slug                  :string
+#  slug                  :string           not null
 #  sport_type            :integer          not null
 #  style                 :integer
 #  created_at            :datetime         not null

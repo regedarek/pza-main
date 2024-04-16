@@ -80,6 +80,7 @@ pl:
           skimo: Narciarstwo Wysokogórskie
         name: Nazwa
         description: Dodatkowy Opis
+        hidden: Ukryj przejście
         length: Długość (m)
         activity_date: Data
         area: Rejon

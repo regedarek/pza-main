@@ -23,7 +23,7 @@
       </div>
 
       <div class="sm:col-span-4">
-        <%= form.label :french_difficulty, class: "block text-sm font-medium leading-6 text-gray-900" %>
+        <%= form.label :french_difficulty, class: "block leading-6 text-gray-900" %>
         <div class="mt-2">
           <%= form.select :french_difficulty, options_for_select(
               MountainRoute.french_difficulties.map { |key, value|

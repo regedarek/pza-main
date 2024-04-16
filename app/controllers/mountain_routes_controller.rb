@@ -3,7 +3,7 @@ class MountainRoutesController < ApplicationController
 
   def index
     mountain_routes = MountainRoute.arel_table
-    query = mountain_routes[:id].not_eq(nil)
+    query = mountain_routes[:hidden].not_eq(true)
     query = query.and(mountain_routes[:activity_date].gteq( Date.new(params.dig(:year).to_i, 1, 1).beginning_of_year)) if params.dig(:year).present?
     query = query.and(mountain_routes[:sport_type].eq(params.dig(:sport_type))) if params.dig(:sport_type).present?
 
@@ -87,6 +87,12 @@ class MountainRoutesController < ApplicationController
     end
 
     def mountain_route_params
-      params.require(:mountain_route).permit(:activity_date, :sport_type, :area, :custom_difficulty, :equipped, :french_difficulty, :length, :multipitch, :multipitch_difficulty, :multipitch_lead, :multipitch_number, :multipitch_style, :name, :partner, :style, :description, images: [], partner_ids: [])
+      params.require(:mountain_route).permit(
+        :activity_date, :sport_type, :area, :custom_difficulty, :equipped,
+        :french_difficulty, :length, :multipitch, :multipitch_difficulty,
+        :multipitch_lead, :multipitch_number, :multipitch_style, :name,
+        :partner, :style, :description, :hidden,
+        images: [], partner_ids: []
+      )
     end
 end

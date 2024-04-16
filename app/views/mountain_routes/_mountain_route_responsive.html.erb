@@ -6,7 +6,7 @@
         <%= MountainRoute.human_enum_name(:sport_type, mountain_route.sport_type) %>
       </p>
       <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-            <%= sanitize team_link(mountain_route) %>
+        <%= sanitize team_link(mountain_route) %>
       </p>
     </div>
     <div class="mt-6 border-t border-gray-100">
@@ -22,6 +22,10 @@
         <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
           <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.length' %></dt>
           <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.length %></dd>
+        </div>
+        <div class="<%= mountain_route.hidden ? "bg-red-50" : "bg-gray-50" %> px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.hidden' %></dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= I18n.t mountain_route.hidden %></dd>
         </div>
         <div class="bg-blue-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
           <dt class="text-sm font-medium leading-6 text-gray-900"><%= I18n.t 'activerecord.attributes.mountain_route.equipped' %></dt>
