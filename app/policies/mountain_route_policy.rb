@@ -50,7 +50,7 @@ class MountainRoutePolicy < ApplicationPolicy
           .or(
             scope.where(user_id: user.id)
           ).or(
-            scope.where(hidden: true, id: MountainRoutePartner.where(user_id: user.id).pluck(:mountain_route_id))
+            scope.where(id: MountainRoutePartner.where(user_id: user.id).pluck(:mountain_route_id))
           ).distinct
       else
         scope.where(hidden: false)

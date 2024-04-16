@@ -24,6 +24,7 @@ gem "solid_queue"
 
 group :production do
   gem "aws-sdk-s3", require: false
+  gem "appsignal"
 end
 
 group :development, :test do
