@@ -41,8 +41,15 @@ class MountainRoutePolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.where(hidden: false)
-        .or(scope.where(user_id: user.id))
+      case
+      when user && user.admin?
+        scope
+      when user
+        scope.where(hidden: false)
+          .or(scope.where(user_id: user.id))
+      else
+        scope.where(hidden: false)
+      end
     end
 
     private
