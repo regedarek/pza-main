@@ -20,6 +20,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem 'pg_search'
 gem 'pagy', '~> 8.1'
+gem "solid_queue"
 
 group :production do
   gem "aws-sdk-s3", require: false
