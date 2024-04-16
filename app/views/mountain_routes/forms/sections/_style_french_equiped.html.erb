@@ -1,0 +1,40 @@
+<div class="space-y-12">
+  <div class="border-b border-gray-900/10 pb-12">
+    <div class="mt-5 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-12">
+      <div class="sm:col-span-4 sm:col-start-1">
+        <%= form.label :equipped, class: "block leading-6 text-gray-900" %>
+        <div class="mt-2">
+          <%= form.check_box :equipped, class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" %>
+        </div>
+      </div>
+
+      <div class="sm:col-span-4">
+        <%= form.label :style, "Styl", class: "block leading-6 text-gray-900" %>
+        <div class="mt-2">
+          <%= form.select :style, options_for_select(
+              MountainRoute.styles.map { |key, value|
+                  [key.upcase, MountainRoute.styles.key(value)]
+              }, @mountain_route.style
+            ),
+            class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+            include_blank: ''
+          %>
+        </div>
+      </div>
+
+      <div class="sm:col-span-4">
+        <%= form.label :french_difficulty, class: "block text-sm font-medium leading-6 text-gray-900" %>
+        <div class="mt-2">
+          <%= form.select :french_difficulty, options_for_select(
+              MountainRoute.french_difficulties.map { |key, value|
+                  [key.titleize, MountainRoute.french_difficulties.key(value)]
+              }, @mountain_route.french_difficulty
+            ),
+            class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+            include_blank: ''
+          %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

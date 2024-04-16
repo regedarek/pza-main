@@ -7,6 +7,7 @@
 #  email           :string
 #  first_name      :string
 #  last_name       :string
+#  last_sport_type :string
 #  password_digest :string
 #  slug            :string
 #  created_at      :datetime         not null

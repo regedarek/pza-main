@@ -22,7 +22,11 @@ class MountainRoutesController < ApplicationController
 
     authorize @mountain_route
 
-    @mountain_route.assign_attributes(mountain_route_params) if params[:mountain_route].present?
+    if params[:mountain_route].present?
+      @mountain_route.assign_attributes(mountain_route_params)
+    else
+      @mountain_route.assign_attributes(sport_type: current_user.last_sport_type) if current_user.last_sport_type.present?
+    end
 
     @mountain_route.partner_ids = [current_user.id]
   end
@@ -41,6 +45,7 @@ class MountainRoutesController < ApplicationController
 
     respond_to do |format|
       if @mountain_route.save
+        current_user.update(last_sport_type: @mountain_route.sport_type)
         format.html { redirect_to mountain_route_url(@mountain_route), notice: t('mountain_routes.create.success') }
         format.json { render :show, status: :created, location: @mountain_route }
       else
@@ -55,6 +60,7 @@ class MountainRoutesController < ApplicationController
 
     respond_to do |format|
       if @mountain_route.update(mountain_route_params)
+        current_user.update(last_sport_type: @mountain_route.sport_type)
         format.html { redirect_to mountain_route_url(@mountain_route), notice: t("mountain_routes.update.success") }
         format.json { render :show, status: :ok, location: @mountain_route }
       else

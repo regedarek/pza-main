@@ -10,58 +10,13 @@
   <% end %>
   <%= form.hidden_field :sport_type, value: "speleo" %>
 
-  <div class="mt-10 grid grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-12">
-    <div class="sm:col-span-6">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
+  <%= render "mountain_routes/forms/sections/name_and_date", form: form %>
 
-    <div class="sm:col-span-6">
-      <%= form.label :activity_date %>
-      <%= form.date_field :activity_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-  </div>
+  <%= render "mountain_routes/forms/sections/length_area_and_difficulty", form: form %>
 
-  <div class="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-12">
-    <div class="sm:col-span-4">
-      <%= form.label :custom_difficulty, class: "block text-sm font-medium leading-6 text-gray-900" %>
-      <div class="mt-2">
-        <%= form.text_field :custom_difficulty, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
-    </div>
+  <%= render "mountain_routes/forms/sections/partners", form: form %>
 
-    <div class="sm:col-span-4">
-      <%= form.label :length %>
-      <%= form.number_field :length, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="sm:col-span-4">
-      <%= form.label :area %>
-      <%= form.text_field :area, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-  </div>
-  <div class="mt-10 grid grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-12">
-  <div class="sm:col-span-6 my-5">
-    <%= form.label :partners %>
-    <%= form.select :partner_ids, User.pluck(:first_name, :id), {}, { multiple: true, data: { controller: "select" } } %>
-  </div>
-  <div class="sm:col-span-6 my-5">
-    <%= form.label :partner %>
-    <%= form.text_field :partner, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-  </div>
-
-  <div class="my-5">
-    <% mountain_route.images.each do |image| %>
-      <%= form.hidden_field :images, multiple: true, value: image.signed_id unless image.new_record? %>
-    <% end %>
-    <%= form.file_field :images, multiple: true, direct_upload: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.rich_text_area :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <%= render "mountain_routes/forms/sections/description_and_images", mountain_route: mountain_route, form: form %>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg my-5 py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
