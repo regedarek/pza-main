@@ -37,7 +37,7 @@ class MountainRoute < ApplicationRecord
   extend FriendlyId
 
   has_many_attached :images do |attachable|
-    attachable.variant :thumb, resize_to_limit: [150, 150]
+    attachable.variant :thumb, resize_to_fill: [150, 150]
   end
 
   has_rich_text :description
