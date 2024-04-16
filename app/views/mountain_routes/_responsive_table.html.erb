@@ -10,7 +10,7 @@
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
     <% mountain_routes.each do |mountain_route| %>
-      <tr>
+      <tr class="even:bg-gray-50">
         <td class="lg:hidden">
           <dl class="font-normal lg:hidden">
             <dd class="mt-1 truncate text-gray-700"><%= link_to mountain_route.name, mountain_route %></dd>
@@ -25,7 +25,7 @@
         </td>
         <td class="hidden whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0 lg:table-cell">
           <div class="flex items-center">
-            <div class="h-11 w-11 flex-shrink-0">
+            <div class="h-11 w-11 ml-3 flex-shrink-0">
               <% if mountain_route.images.attached? %>
                 <% image = mountain_route.images.first %>
                 <%= image_tag image.variant(:thumb), class: "h-11 w-11 rounded-full" %>
@@ -56,13 +56,13 @@
         <td class="hidden relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 lg:table-cell">
           <% if policy(mountain_route).edit? %>
             <%= link_to edit_mountain_route_path(mountain_route), class: "text-yellow-600 hover:text-yellow-900" do %>
-              <span class=""><%= t('edit') %></span>
+              <span class="mr-3"><%= t('edit') %></span>
             <% end %>
             <%= button_to mountain_route, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "text-red-600 hover:text-red-900" do %>
-              <span class=""><%= t('delete') %></span>
+              <span class="mr-3"><%= t('delete') %></span>
             <% end %>
             <% if mountain_route.hidden? %>
-              <span class="text-gray-500"><%= t('.hidden') %></span>
+              <span class="mr-3 text-gray-500"><%= t('.hidden') %></span>
             <% end %>
           <% end %>
         </td>
