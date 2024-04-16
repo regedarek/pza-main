@@ -1,7 +1,7 @@
 <%= render 'shared/flash' %>
 <%= render 'mountain_route_responsive', mountain_route: @mountain_route %>
 
-<div class="flex mb-5 gap-5 w-full text-center">
+<div class="flex md:my-5 gap-5 w-full text-center">
   <% if policy(@mountain_route).edit? %>
     <div class="w-1/3 rounded-lg p-3 bg-green-100 ">
       <%= link_to t('edit'), edit_mountain_route_path(@mountain_route), class: "font-medium" %>
