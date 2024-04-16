@@ -1,14 +1,18 @@
-<div class="w-full">
-  <%= render 'shared/flash' %>
-  <div class="mx-auto w-full">
-    <%= render 'mountain_route_responsive', mountain_route: @mountain_route %>
+<%= render 'shared/flash' %>
+<%= render 'mountain_route_responsive', mountain_route: @mountain_route %>
 
-    <% if policy(@mountain_route).edit? %>
-      <%= link_to t('edit'), edit_mountain_route_path(@mountain_route), class: "mt-2 rounded-lg py-3 px-5 bg-green-100 inline-block font-medium" %>
-      <div class="inline-block ml-2">
-        <%= button_to t('.destroy'), mountain_route_path(@mountain_route), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" %>
-      </div>
-    <% end %>
-    <%= link_to t('back'), mountain_routes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="grid grid-cols-3 my-10">
+  <% if policy(@mountain_route).edit? %>
+    <div class="col-span-1">
+      <%= link_to t('edit'), edit_mountain_route_path(@mountain_route), class: "rounded-lg p-5 bg-green-100 font-medium" %>
+    </div>
+    <div class="col-span-1">
+      <%= button_to mountain_route_path(@mountain_route), method: :delete, form: { data: { turbo_confirm: t('confirm') } }, class: "text-red-600 hover:text-red-900" do %>
+        <span class="rounded-lg p-5 bg-red-100 font-medium"><%= t('.destroy') %></span>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="col-span-<%= policy(@mountain_route).edit? ? '1' : '3' %>">
+    <%= link_to t('back'), mountain_routes_path, class: "rounded-lg p-5 bg-gray-100 font-medium" %>
   </div>
 </div>

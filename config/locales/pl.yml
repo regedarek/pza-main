@@ -6,6 +6,7 @@ pl:
   false: Nie
   login: Zaloguj Się
   register: Zarejestruj Się
+  confirm: Jesteś pewien?
   logout: Wyloguj się
   back: Powrót
   delete: Usuń
