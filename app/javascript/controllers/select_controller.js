@@ -8,7 +8,9 @@ export default class extends Controller {
       select: this.element,   // this.element is the <select> tag
       showSearch: true,       // show search field
       settings: {
-        allowDeselect: true   // allow deselecting (x) option
+        allowDeselect: true,
+        placeholderText: 'Wybierz...',
+        searchPlaceholder: 'Wyszukaj...'
       }
     })
   }
