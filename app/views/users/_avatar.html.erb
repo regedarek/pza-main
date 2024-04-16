@@ -1,0 +1,7 @@
+<% if user.avatar.attached? %>
+  <%= image_tag user.avatar.variant(:thumb), class: "#{size ||= 'h-6 w-6' } rounded-full" %>
+<% else %>
+  <span class="inline-flex <%= size ||= 'h-6 w-6' %> items-center justify-center rounded-full bg-gray-500">
+    <span class="font-medium leading-none text-white"><%= user.name.split.map(&:first).join %></span>
+  </span>
+<% end %>

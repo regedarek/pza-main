@@ -2,13 +2,7 @@
   <footer class="flex justify-between items-center mb-2">
       <div class="flex items-center">
         <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-          <% if comment.user.avatar.attached? %>
-            <%= image_tag comment.user.avatar.variant(:thumb), class: "h-6 w-6 rounded-full" %>
-          <% else %>
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-500">
-              <span class="font-medium leading-none text-white"><%= comment.user.name.split.map(&:first).join %></span>
-            </span>
-          <% end %>
+          <%= render partial: "users/avatar", locals: { user: comment.user } %>
           <div><%= link_to comment.user.name, comment.user %></div>
         </p>
         <p class="ml-3 text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="<%= comment.created_at.to_date %>" title="<%= l comment.created_at, format: :short %>"><%= l comment.created_at, format: :short %></time></p>

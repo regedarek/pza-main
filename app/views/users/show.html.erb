@@ -1,10 +1,6 @@
 <div class="flex">
   <div class="mr-4 flex-shrink-0 self-end">
-    <% if @user.avatar.attached? %>
-      <%= image_tag @user.avatar.variant(:thumb), class: "h-20 w-20 rounded-full" %>
-    <% else %>
-      <%= image_tag "https://picsum.photos/200", class: "h-20 w-20 rounded-full" %>
-    <% end %>
+    <%= render partial: "users/avatar", locals: { user: @user, size: "h-20 w-20" } %>
   </div>
 
   <div>
