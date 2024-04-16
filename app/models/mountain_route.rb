@@ -46,6 +46,7 @@ class MountainRoute < ApplicationRecord
     against: [:name, :area, :partner],
     associated_against: {
       user: [:first_name, :last_name],
+      partners: [:first_name, :last_name],
       rich_text_description: [:body]
     },
     using: [:tsearch]
