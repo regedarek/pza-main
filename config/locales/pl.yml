@@ -22,6 +22,7 @@ pl:
     responsive_table:
       date: Data / Typ
       name: Nazwa / Rejon
+      hidden: Widoczne tylko dla Ciebie
       difficulty: Trudność
       team: Zespół
     create:
