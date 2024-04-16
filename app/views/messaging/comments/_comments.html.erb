@@ -1,0 +1,9 @@
+<div class="mt-5">
+  <% commentable.comments.includes(:user).each do |comment| %>
+    <%= render partial: 'messaging/comments/comment', locals: { comment: comment } %>
+  <% end %>
+
+  <div class="mt-5">
+    <%= render partial: 'messaging/comments/form', locals: { commentable: commentable } %>
+  </div>
+</div>

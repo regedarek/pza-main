@@ -75,6 +75,7 @@ class MountainRoute < ApplicationRecord
   belongs_to :user
   has_many :mountain_route_partners, dependent: :destroy
   has_many :partners, through: :mountain_route_partners, source: :user
+  has_many :comments, as: :commentable, class_name: 'Messaging::Comment'
 
   validates :user_id, :activity_date, :sport_type, :name, :area, :length,
     :partners, presence: true

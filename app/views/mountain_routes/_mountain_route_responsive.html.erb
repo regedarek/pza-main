@@ -70,12 +70,6 @@
     </div>
   </div>
   <div>
-    <% if mountain_route.description.present? %>
-      <div class="bg-gray-50 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.description %></dd>
-      </div>
-    <% end %>
-
     <% if mountain_route.images.attached? %>
       <div class="grid grid-cols-4 gap-5">
         <% mountain_route.images.each do |image| %>
@@ -95,5 +89,13 @@
         <% end %>
       </div>
     <% end %>
+
+    <% if mountain_route.description.present? %>
+      <div class="rounded border bg-gray-50 px-4 py-6 mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= mountain_route.description %></dd>
+      </div>
+    <% end %>
+
+    <%= render 'messaging/comments/comments', commentable: @mountain_route %>
   </div>
 </div>

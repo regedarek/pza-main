@@ -1,0 +1,14 @@
+<div class="">
+  <%= form_with(model: Messaging::Comment.new, class: "contents") do |form| %>
+    <%= form.hidden_field :commentable_type, value: commentable.class %>
+    <%= form.hidden_field :commentable_id, value: commentable.id %>
+
+    <div class="my-5">
+      <%= form.rich_text_area :content, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="grid md:grid-cols-1 gap-4 mb-5">
+      <%= form.submit t('.submit'), class: "rounded-lg w-full py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+</div>

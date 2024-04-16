@@ -12,6 +12,21 @@ pl:
   edit: Edycja
   edit_password: Edytuj Hasło
   your_profile: Twój Profil
+  messaging:
+    comments:
+      comment:
+        confirm: Jesteś pewien?!
+        destroy: Usuń
+      form:
+        submit: Dodaj komentarz
+      create:
+        success: Dodałeś komentarz!
+        empty: Komentarz nie może być pusty!
+      update:
+        success: Zaktualizowałeś komentarz!
+        error: Komentarz nie może być pusty!
+      destroy:
+        success: Usunięto komentarz!
   mountain_routes:
     index:
       sport_type: Rodzaj sportu
@@ -72,6 +87,8 @@ pl:
       user: Użytkownik
       mountain_route: Przejście
     attributes:
+      messaging:
+        comment: Komentarz
       mountain_route:
         sport_type: Rodzaj sportu
         sport_types:

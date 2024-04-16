@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  namespace :messaging do
+    resources :comments, only: [:create, :update, :destroy]
+  end
+
   resource :session, only: [:new, :create, :destroy]
   resource :registration, only: [:new, :create]
   resource :password_reset, only: [:new, :create, :edit, :update]
