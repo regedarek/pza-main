@@ -1,7 +1,13 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl"><%= t(".title") %></h1>
+<h1 class="font-bold text-4xl"><%= t(".title") %></h1>
 
-  <%= render "form", mountain_route: @mountain_route %>
-
-  <%= link_to t('back'), mountain_routes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="flex justify-between items-center mt-5">
+  <% MountainRoute.sport_types.keys.each do |sport_type| %>
+    <% if sport_type == @mountain_route.sport_type %>
+      <%= link_to t("activerecord.attributes.mountain_route.sport_types.#{sport_type}"), new_mountain_route_path(mountain_route: { sport_type: sport_type }), class: "rounded-lg py-3 px-5 bg-yellow-300 inline-block font-medium" %>
+    <% else %>
+      <%= link_to t("activerecord.attributes.mountain_route.sport_types.#{sport_type}"), new_mountain_route_path(mountain_route: { sport_type: sport_type }), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
+  <% end %>
 </div>
+
+<%= render "form", mountain_route: @mountain_route %>

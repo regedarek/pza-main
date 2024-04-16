@@ -74,19 +74,27 @@ class MountainRoute < ApplicationRecord
   has_many :mountain_route_partners, dependent: :destroy
   has_many :partners, through: :mountain_route_partners, source: :user
 
-  validates :user_id, :activity_date, :sport_type, :name, :area, :length, :french_difficulty,
-    :style, presence: true
+  validates :user_id, :activity_date, :sport_type, :name, :area, :length,
+    :partners, presence: true
 
-  validates :multipitch_style, :multipitch_number, :multipitch_lead,
-    :multipitch_difficulty, presence: true, if: :multipitch
+  with_options if: :climbing? do |climbing|
+    climbing.validates :french_difficulty, presence: true
+    climbing.validates :french_difficulty, inclusion: { in: french_difficulties.keys }
+    climbing.validates :style,             presence: true
+    climbing.validates :style,             inclusion: { in: styles.keys }
+    climbing.validates :equipped,          inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
 
-  validates :equipped, inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
-  validates :multipitch, inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
+    with_options if: [:multipitch?, :climbing?] do |multipitch|
+      multipitch.validates :multipitch_style, :multipitch_number,
+        :multipitch_lead, :multipitch_difficulty, presence: true
+      multipitch.validates :multipitch,       inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
+      multipitch.validates :multipitch_style, inclusion: { in: self.multipitch_styles.keys }
+    end
+  end
 
-  validates :multipitch_style, inclusion: { in: multipitch_styles.keys }, if: :multipitch
-  validates :style, inclusion: { in: styles.keys }
-  validates :french_difficulty, inclusion: { in: french_difficulties.keys }
-  validates :partners, presence: true
+  def climbing?
+    ["sport_climbing", "trad_climbing", "winter_climbing"].include?(sport_type)
+  end
 
   def name_and_date
     return nil unless activity_date.present? && name.present?

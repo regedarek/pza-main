@@ -22,11 +22,15 @@ class MountainRoutesController < ApplicationController
 
     authorize @mountain_route
 
+    @mountain_route.assign_attributes(mountain_route_params) if params[:mountain_route].present?
+
     @mountain_route.partner_ids = [current_user.id]
   end
 
   def edit
     authorize @mountain_route
+
+    @mountain_route.assign_attributes(mountain_route_params) if params[:mountain_route].present?
   end
 
   def create
@@ -40,7 +44,7 @@ class MountainRoutesController < ApplicationController
         format.html { redirect_to mountain_route_url(@mountain_route), notice: t('mountain_routes.create.success') }
         format.json { render :show, status: :created, location: @mountain_route }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, locals: { mountain_route: @mountain_route, params: mountain_route_params } }
         format.json { render json: @mountain_route.errors, status: :unprocessable_entity }
       end
     end
