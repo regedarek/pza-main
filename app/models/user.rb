@@ -38,19 +38,15 @@ class User < ApplicationRecord
   has_many :mountain_route_partners, dependent: :destroy
   has_many :mountain_routes, through: :mountain_route_partners, source: :mountain_route
 
-  def admin?
-    false
-  end
-
   def name
     "#{first_name} #{last_name}"
   end
 
   def title
-    "Wspinacz"
+    "-"
   end
 
   def club
-    "KW Kraków"
+    "-"
   end
 end

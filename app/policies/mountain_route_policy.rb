@@ -7,7 +7,7 @@ class MountainRoutePolicy < ApplicationPolicy
   end
 
   def index?
-    user
+    true
   end
 
   def new?
@@ -15,7 +15,7 @@ class MountainRoutePolicy < ApplicationPolicy
   end
 
   def show?
-    user
+    true
   end
 
   def update?

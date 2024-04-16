@@ -1,0 +1,7 @@
+<% if user_signed_in? && current_user.admin? %>
+  <div class="container m-10">
+    <ul>
+      <li><%= link_to "Użytkownicy", admin_users_path, class: "p-5 bg-yellow-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
+    </ul>
+  </div>
+<% end %>
