@@ -19,8 +19,5 @@
   <%= render "mountain_routes/forms/sections/multipitch", mountain_route: mountain_route, form: form %>
 
   <%= render "mountain_routes/forms/sections/description_and_images", mountain_route: mountain_route, form: form %>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg w-full  my-5 py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
+  <%= render "mountain_routes/forms/sections/submit", form: form %>
 <% end %>
