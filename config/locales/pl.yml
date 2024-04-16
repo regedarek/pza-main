@@ -8,6 +8,7 @@ pl:
   register: Zarejestruj Się
   confirm: Jesteś pewien?
   logout: Wyloguj się
+  show: Zobacz
   back: Powrót
   delete: Usuń
   edit: Edycja
