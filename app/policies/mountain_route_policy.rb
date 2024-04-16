@@ -45,12 +45,12 @@ class MountainRoutePolicy < ApplicationPolicy
       when user && user.admin?
         scope
       when user
-        MountainRoute.includes(:partners)
+        scope
           .where(hidden: false)
           .or(
-            MountainRoute.includes(:partners).where(user_id: user.id)
+            scope.where(user_id: user.id)
           ).or(
-            MountainRoute.includes(:partners).where(partners: { id: user.id })
+            scope.where(hidden: true, id: MountainRoutePartner.where(user_id: user.id).pluck(:mountain_route_id))
           ).distinct
       else
         scope.where(hidden: false)
