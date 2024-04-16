@@ -3,7 +3,7 @@ default: &defaults
   push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
 
   # Your app's name
-  name: "KWApp Staging"
+  name: "PZA Main"
 
   # Actions that should not be monitored by AppSignal
   # ignore_actions:
@@ -33,7 +33,9 @@ default: &defaults
 development:
   <<: *defaults
   active: false
+  log: stdout
 
 production:
   <<: *defaults
   active: true
+  log: stdout
