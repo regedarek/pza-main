@@ -14,6 +14,7 @@ pl:
   your_profile: Twój Profil
   mountain_routes:
     index:
+      sport_type: Rodzaj sportu
       search: Wyszukaj
       year: Od Roku(YYYY)
       title: Lista Przejść
