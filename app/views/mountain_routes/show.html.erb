@@ -1,18 +1,18 @@
 <%= render 'shared/flash' %>
 <%= render 'mountain_route_responsive', mountain_route: @mountain_route %>
 
-<div class="flex md:my-5 gap-5 w-full text-center">
+<div class="flex md:my-5 gap-5 w-full items-center text-center mb-5">
   <% if policy(@mountain_route).edit? %>
-    <div class="w-1/3 rounded-lg p-3 bg-green-100 ">
-      <%= link_to t('edit'), edit_mountain_route_path(@mountain_route), class: "font-medium" %>
-    </div>
-    <div class="w-1/3 rounded-lg p-3 bg-red-100 ">
+    <%= link_to edit_mountain_route_path(@mountain_route), class: "w-1/3 rounded-lg p-6 bg-green-100 font-medium" do %>
+      <%= t('edit') %>
+    <% end %>
+    <div class="w-1/3 rounded-lg p-6 bg-red-100 ">
       <%= button_to mountain_route_path(@mountain_route), method: :delete, form: { data: { turbo_confirm: t('confirm') } }, class: "text-red-600 hover:text-red-900" do %>
-        <span class="font-medium"><%= t('.destroy') %></span>
+        <div class="font-medium"><%= t('.destroy') %></div>
       <% end %>
     </div>
   <% end %>
-  <div class="w-1/3 rounded-lg bg-gray-100 p-3">
-    <%= link_to t('back'), mountain_routes_path, class: "font-medium" %>
-  </div>
+  <%= link_to mountain_routes_path, class: "w-1/3 rounded-lg bg-gray-100 p-6 font-medium" do %>
+    <%= t('back') %>
+  <% end %>
 </div>
