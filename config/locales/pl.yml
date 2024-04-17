@@ -119,8 +119,15 @@ pl:
         mountain_route: w polach przejścia
     models:
       user: Użytkownik
+      app_setting: Ustawienie
       mountain_route: Przejście
     attributes:
+      app_setting:
+        name: Nazwa
+        slug: Kod
+        checkbox: Pole TAK/NIE
+        number: Pole Cyfry
+        content: Pole Tekstowe
       messaging:
         comment: Komentarz
       mountain_route:

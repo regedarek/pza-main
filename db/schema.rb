@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_16_174832) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_17_111737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_174832) do
     t.uuid "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "app_settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.boolean "checkbox", default: false, null: false
+    t.integer "number"
+    t.integer "setting_type", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_app_settings_on_slug", unique: true
   end
 
   create_table "messaging_comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

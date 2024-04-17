@@ -2,4 +2,6 @@
 
 <%= link_to t('.reset_your_password'), edit_password_reset_url(token: @token) %>
 
+<%= sanitize AppSetting.find_by(slug: 'reset-hasla')&.content %>
+
 <%= t('.greetings') %>

@@ -1,5 +1,7 @@
 <%= t('.hello') %> <%= @user.name %>,
 <br>
+<%= sanitize AppSetting.find_by(slug: 'reset-hasla')&.content %>
+<br>
 <%= link_to t('.reset_your_password'), edit_password_reset_url(token: @token) %>
 <br>
 <%= t('.greetings') %>

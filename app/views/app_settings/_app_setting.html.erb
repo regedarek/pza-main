@@ -1,0 +1,32 @@
+<div id="<%= dom_id app_setting %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= app_setting.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Kod:</strong>
+    <%= app_setting.slug %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Checkbox:</strong>
+    <%= app_setting.checkbox %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Number:</strong>
+    <%= app_setting.number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Setting type:</strong>
+    <%= app_setting.setting_type %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this app setting", app_setting, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this app setting", edit_app_setting_path(app_setting), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

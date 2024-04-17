@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
+
   resources :mountain_routes, path: 'przejscia'
+  resources :app_settings, path: "konfiguracja"
 
   resources :users, only: [:show, :destroy]
 

@@ -1,8 +1,5 @@
-<div class="mx-auto w-full flex">
-  <div class="mx-auto">
-    <h1 class="text-xl font-bold text-center">Polityka Prywatności</h1>
-      <div class="w-full">
-        Tutaj będzie polityka prywatności aplikacji.
-      </div>
-  </div>
+<h1 class="text-xl font-bold text-center">Polityka Prywatności</h1>
+
+<div class="w-full">
+  <%= sanitize AppSetting.find_by(slug: 'polityka-prywatnosci')&.content %>
 </div>

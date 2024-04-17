@@ -1,8 +1,4 @@
-<div class="mx-auto w-full flex">
-  <div class="mx-auto">
-    <h1 class="text-xl font-bold text-center">Regulamin</h1>
-      <div class="w-full">
-        Tutaj będzie regulamin aplikacji.
-      </div>
-  </div>
+<h1 class="text-xl font-bold text-center">Regulamin</h1>
+<div class="w-full">
+  <%= sanitize AppSetting.find_by(slug: 'regulamin')&.content %>
 </div>

@@ -4,9 +4,10 @@
       <li><%= link_to "Użytkownicy", admin_users_path, class: "p-5 bg-yellow-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
       <li><%= link_to "Monitoring", 'https://appsignal.com/klub-wysokogorski-krakow/sites/661fa4c283eb67a5812d5f09/dashboard', class: "p-5 bg-yellow-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
       <li><%= link_to "Zadania w tle", '/jobs', class: "p-5 bg-yellow-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
-      <li><%= link_to "Regulamin", '#', class: "p-5 bg-gray-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
-      <li><%= link_to "Polityka Prywatności", '#', class: "p-5 bg-gray-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
-      <li><%= link_to "Treści E-maili", '#', class: "p-5 bg-gray-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
+      <li><%= link_to "Regulamin", edit_app_setting_path(id: 'regulamin'), class: "p-5 bg-yellow-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
+      <li><%= link_to "Polityka Prywatności", edit_app_setting_path(id: 'polityka-prywatnosci'), class: "p-5 bg-yellow-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
+      <li><%= link_to "E-mail Resetu Hasła", edit_app_setting_path(id: 'reset-hasla'), class: "p-5 bg-yellow-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
+      <li><%= link_to "Pozostałe ustawienia", '/konfiguracja', class: "p-5 bg-gray-300 text-white-400 hover:bg-yellow-700 hover:text-white" %>
     </ul>
   </div>
 <% end %>
