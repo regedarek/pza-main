@@ -61,6 +61,7 @@ pl:
       destroy: Usuń
     new:
       title: Dodaj Przejście
+      next_title: Dodaj kolejne przejście
   password_mailer:
     reset:
       greetings: Pozdrawiamy

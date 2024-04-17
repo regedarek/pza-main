@@ -66,7 +66,11 @@ class MountainRoutesController < ApplicationController
     respond_to do |format|
       if @mountain_route.save
         current_user.update(last_sport_type: @mountain_route.sport_type)
-        format.html { redirect_to mountain_route_url(@mountain_route), notice: t('mountain_routes.create.success') }
+        if ActiveModel::Type::Boolean.new.cast(params[:next])
+          format.html { redirect_to new_mountain_route_url(next: true), notice: t('mountain_routes.create.success') }
+        else
+          format.html { redirect_to mountain_route_url(@mountain_route), notice: t('mountain_routes.create.success') }
+        end
         format.json { render :show, status: :created, location: @mountain_route }
       else
         format.html { render :new, status: :unprocessable_entity, locals: { mountain_route: @mountain_route, params: mountain_route_params } }

@@ -1,4 +1,11 @@
-<h1 class="font-bold text-4xl"><%= t(".title") %></h1>
+<h1 class="font-bold text-4xl">
+  <% if ActiveModel::Type::Boolean.new.cast(params[:next]) %>
+    <%= t(".next_title") %>
+  <% else %>
+    <%= t(".title") %>
+  <% end %>
+</h1>
+<%= render 'shared/flash' %>
 
 <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-5 mt-5">
   <% MountainRoute.sport_types.keys.each do |sport_type| %>
