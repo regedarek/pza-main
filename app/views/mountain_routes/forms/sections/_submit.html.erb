@@ -1,8 +1,8 @@
 <div class="grid md:grid-cols-6 gap-4 mb-5">
-  <div class='col-span-5'>
+  <div class='md:col-span-5 sm:col-span-6'>
     <%= form.submit class: "rounded-lg w-full py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
-  <div class='col-span-1'>
+  <div class='col-span-1 hidden lg:block'>
     <div class="mt-2 items-center">
       <%= check_box_tag :next, true, false %>
       <%= label_tag :next, "Dodaj kolejne przejście", class: "text-sm font-medium text-gray-700" %>
