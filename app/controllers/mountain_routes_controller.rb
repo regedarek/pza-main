@@ -1,6 +1,15 @@
 class MountainRoutesController < ApplicationController
   before_action :set_mountain_route, only: %i[ show edit update destroy ]
 
+  def areas
+    all_areas = MountainRoute.all.distinct.pluck(:area)
+    @areas = all_areas.select do |area|
+      area.downcase.include?(params[:q].downcase)
+    end
+
+    render layout: false
+  end
+
   def index
     mountain_routes = MountainRoute.arel_table
     query = mountain_routes[:id].not_eq(nil)

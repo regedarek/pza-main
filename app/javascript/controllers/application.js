@@ -2,7 +2,9 @@ import { Application } from "@hotwired/stimulus"
 const application = Application.start()
 
 import { Alert, Autosave, ColorPreview, Dropdown, Modal, Tabs, Popover, Toggle, Slideover } from "tailwindcss-stimulus-components"
+import { Autocomplete } from 'stimulus-autocomplete'
 
+application.register('autocomplete', Autocomplete)
 application.register('alert', Alert)
 application.register('autosave', Autosave)
 application.register('color-preview', ColorPreview)

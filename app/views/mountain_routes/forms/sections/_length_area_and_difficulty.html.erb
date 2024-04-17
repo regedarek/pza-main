@@ -11,8 +11,9 @@
     <%= form.number_field :length, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="sm:col-span-4">
+  <div class="sm:col-span-4" data-controller="autocomplete" data-autocomplete-selected-class="bg-red-300 p-2" data-autocomplete-url-value="/przejscia/areas" role="combobox">
     <%= form.label :area %>
-    <%= form.text_field :area, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :area, data: { "autocomplete-target" => "input" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <ul data-autocomplete-target="results" class="absolute z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"></ul>
   </div>
 </div>
