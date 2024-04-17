@@ -9,7 +9,7 @@ class PasswordResetsController < ApplicationController
       PasswordMailer.with(
         user: user,
         token: user.generate_token_for(:password_reset)
-      ).reset.deliver_later
+      ).reset.deliver_now
     end
 
     redirect_to root_url, notice: t('password_resets.create.notice')
