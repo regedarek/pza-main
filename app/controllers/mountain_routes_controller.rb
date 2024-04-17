@@ -1,6 +1,15 @@
 class MountainRoutesController < ApplicationController
   before_action :set_mountain_route, only: %i[ show edit update destroy ]
 
+  def custom_difficulties
+    all_custom_difficulties = MountainRoute.all.distinct.pluck(:custom_difficulty)
+    @custom_difficulties = all_custom_difficulties.select do |custom_difficulty|
+      custom_difficulty.downcase.include?(params[:q].downcase)
+    end
+
+    render layout: false
+  end
+
   def areas
     all_areas = MountainRoute.all.distinct.pluck(:area)
     @areas = all_areas.select do |area|

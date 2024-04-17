@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :mountain_routes, path: 'przejscia' do
     get :areas, on: :collection
+    get :custom_difficulties, on: :collection
   end
   resources :app_settings, path: "konfiguracja"
 
