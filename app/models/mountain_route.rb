@@ -40,6 +40,8 @@ class MountainRoute < ApplicationRecord
     attachable.variant :thumb, resize_to_fill: [150, 150]
   end
 
+  normalizes :area, with: -> area { area&.downcase&.strip&.split(' ')&.collect(&:capitalize).join(' ') }
+
   has_rich_text :description
 
   pg_search_scope :search,
