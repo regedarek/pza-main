@@ -1,5 +1,6 @@
 pl:
   no_account: Nie masz konta?
+  forgot_password: Zapomniałeś hasła?
   sign_up: Zarejestruj się
   already_signed: Masz już konto?
   sign_in: Zaloguj się
