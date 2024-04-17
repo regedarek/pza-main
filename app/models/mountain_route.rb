@@ -41,7 +41,8 @@ class MountainRoute < ApplicationRecord
   end
 
   normalizes :area, with: -> area { area&.downcase&.strip&.split(' ')&.collect(&:capitalize).join(' ') }
-  normalizes :custom_difficulty, with: -> custom_difficulty { custom_difficulty&.strip&.upcase }
+  normalizes :custom_difficulty, with: -> custom_difficulty { custom_difficulty =~ /\d/ ? custom_difficulty&.strip : custom_difficulty&.strip&.upcase }
+  normalizes :partner, with: -> partner { partner&.downcase&.strip&.split(/[\s]/)&.collect(&:strip)&.join(' ')&.split(/[,'+]/)&.collect(&:strip)&.map(&:capitalize).join(' + ') }
 
   has_rich_text :description
 
