@@ -1,0 +1,5 @@
+<%= t('.hello') %> <%= @user.name %>,
+<br>
+<%= link_to t('.reset_your_password'), edit_password_reset_url(token: @token) %>
+<br>
+<%= t('.greetings') %>

@@ -1,4 +1,11 @@
 pl:
+  no_account: Nie masz konta?
+  sign_up: Zarejestruj się
+  already_signed: Masz już konto?
+  sign_in: Zaloguj się
+  password_mailer:
+    reset:
+      subject: Zresetuj swoje hasło
   error: błędów
   pundit:
     not_authorized: Brak dostępu do tej strony, sprawdź czy jesteś zalogowany!
@@ -53,6 +60,25 @@ pl:
       destroy: Usuń
     new:
       title: Dodaj Przejście
+  password_mailer:
+    reset:
+      greetings: Pozdrawiamy
+      hello: Cześć,
+      reset_your_password: Kliknij w link aby zresetować hasło
+  password_resets:
+    update:
+      notice: Zresetowano hasło!
+      failure: Nie zresetowano hasła, zgłoś się do administratora lub spróbuj ponownie!
+    new:
+      title: Zresetuj hasło
+      submit: Wyślij prośbę o zresetowanie
+      email: E-mail
+    edit:
+      password: Hasło
+      password_confirmation: Potwierdź Hasło
+      submit: Resetuj hasło
+    create:
+      notice: Jeżeli twoje konto istnieje wysłaliśmy link do zresetowania hasła.
   passwords:
     success: "Zaktualizowano hasło!"
     edit:
