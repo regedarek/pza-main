@@ -52,9 +52,9 @@ Rails.application.configure do
   config.force_ssl = false
 
   # Log to STDOUT by default
-  config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+ #config.logger = ActiveSupport::Logger.new(STDOUT)
+ #  .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+ #  .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   config.active_record.logger = nil
 
@@ -71,7 +71,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :solid_queue
-  config.solid_queue.silence_polling = true
+
 
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
