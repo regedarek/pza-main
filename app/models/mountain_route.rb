@@ -80,7 +80,7 @@ class MountainRoute < ApplicationRecord
   has_many :partners, through: :mountain_route_partners, source: :user
   has_many :comments, as: :commentable, class_name: 'Messaging::Comment'
 
-  validates :user_id, :activity_date, :sport_type, :name, :area, :length,
+  validates :user_id, :activity_date, :sport_type, :name, :area,
     :partners, presence: true
 
   with_options if: :climbing? do |climbing|
@@ -92,7 +92,7 @@ class MountainRoute < ApplicationRecord
 
     with_options if: [:multipitch?, :climbing?] do |multipitch|
       multipitch.validates :multipitch_style, :multipitch_number,
-        :multipitch_lead, :multipitch_difficulty, presence: true
+        :multipitch_lead, :multipitch_difficulty, :length, presence: true
       multipitch.validates :multipitch,       inclusion: { in: [true, false], message: I18n.t('errors.messages.blank') }
       multipitch.validates :multipitch_style, inclusion: { in: self.multipitch_styles.keys }
     end
