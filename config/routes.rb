@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :mountain_routes, path: 'przejscia'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :destroy]
 
   namespace :admin do
     resources :users

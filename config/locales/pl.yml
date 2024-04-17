@@ -13,6 +13,7 @@ pl:
   delete: Usuń
   edit: Edycja
   edit_password: Edytuj Hasło
+  settings: Ustawienia
   your_profile: Twój Profil
   messaging:
     comments:
@@ -55,6 +56,7 @@ pl:
   passwords:
     success: "Zaktualizowano hasło!"
     edit:
+      delete: Usuń konto
       password_challange: Obecne hasło
       password: Hasło
       password_confirmation: Potwierdź Hasło
@@ -69,6 +71,9 @@ pl:
       password: Hasło
       password_confirmation: Potwierdź Hasło
       submit: Zarejestruj
+  users:
+    destroy:
+      destroyed: Pomyślnie usunięto wszystkie twoje dane z systemu!
   sessions:
     new:
       sign_in: Zaloguj się
@@ -121,6 +126,7 @@ pl:
         first_name: "Imię"
         last_name: "Nazwisko"
         email: "E-mail"
+        password_challenge: Obecne hasło
         password_digest: "Hasło"
         password: "Hasło"
         password_confirmation: "Powtórz Hasło"

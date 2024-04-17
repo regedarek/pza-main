@@ -34,9 +34,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :added_mountain_routes, dependent: :destroy, class_name: 'MountainRoute', foreign_key: :user_id
-
   has_many :mountain_route_partners, dependent: :destroy
   has_many :mountain_routes, through: :mountain_route_partners, source: :mountain_route
+  has_many :comments, dependent: :destroy, class_name: 'Messaging::Comment', foreign_key: :user_id
 
   def name
     "#{first_name} #{last_name}"
