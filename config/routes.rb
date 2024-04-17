@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
 
   get 'trudnosci' => 'pages#dificulties_table'
+  get 'polityka-prywatnosci' => 'pages#polityka_prywatnosci'
+  get 'regulamin' => 'pages#regulamin'
   get 'admin' => 'pages#admin'
   get 'przejscia' => 'mountain_routes#index'
 
