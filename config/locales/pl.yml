@@ -9,7 +9,7 @@ pl:
       subject: Zresetuj swoje hasło
   error: błędów
   pundit:
-    not_authorized: Brak dostępu do tej strony, sprawdź czy jesteś zalogowany!
+    not_authorized_html: "Brak dostępu do tej strony, sprawdź czy jesteś <a class='text-blue-500' href='/session/new'>zalogowany</a> albo <a class='text-blue-500' href='/registration/new'>załóż konto</a>!"
   true: Tak
   false: Nie
   login: Zaloguj Się
