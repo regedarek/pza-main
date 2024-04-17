@@ -21,6 +21,7 @@ gem "image_processing", "~> 1.2"
 gem 'pg_search'
 gem 'pagy', '~> 8.1'
 gem "solid_queue"
+gem "mission_control-jobs"
 
 group :production do
   gem "aws-sdk-s3", require: false
