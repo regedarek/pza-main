@@ -72,7 +72,7 @@ module Admin
 
       # Only allow a list of trusted parameters through.
       def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :avatar)
+        params.require(:user).permit(:first_name, :last_name, :email, :avatar, :admin)
       end
   end
 end

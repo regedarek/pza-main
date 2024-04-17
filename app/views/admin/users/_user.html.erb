@@ -1,12 +1,7 @@
 <div id="<%= dom_id user %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">First name:</strong>
-    <%= user.first_name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Last name string:</strong>
-    <%= user.last_name %>
+    <strong class="block font-medium mb-1">Imię i nazwisko:</strong>
+    <%= user.name %>
   </p>
 
   <p class="my-5">
@@ -15,9 +10,9 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this user", admin_user_path(user), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this user", edit_admin_user_path(user), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= button_to "Delete this user", admin_user_path(user), method: :delete, data: { confirm: "Jesteś pewnien?" }, class: "rounded-lg py-3 ml-2 px-5 bg-red-500 inline-block font-medium" %>
+    <%= link_to "Zobacz", admin_user_path(user), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edytuj", edit_admin_user_path(user), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= button_to "Usuń", admin_user_path(user), method: :delete, data: { confirm: "Jesteś pewnien?" }, class: "rounded-lg py-3 ml-2 px-5 bg-red-500 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
