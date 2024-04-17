@@ -69,6 +69,7 @@ pl:
   password_resets:
     update:
       notice: Zresetowano hasło!
+      alert: Token jest nieprawidłowy lub nieaktualny!
       failure: Nie zresetowano hasła, zgłoś się do administratora lub spróbuj ponownie!
     new:
       title: Zresetuj hasło
